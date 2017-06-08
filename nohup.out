@@ -1,0 +1,345 @@
+scons: Reading SConscript files ...
+Checking for C header file Python.h... (cached) yes
+Checking for C library pthread... (cached) yes
+Checking for C library dl... (cached) yes
+Checking for C library util... (cached) yes
+Checking for C library m... (cached) yes
+Checking for C library python2.7... (cached) yes
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for GOOGLE_PROTOBUF_VERIFY_VERSION in C++ library protobuf... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) no
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library rt... (cached) yes
+Checking for C library tcmalloc... (cached) yes
+Checking for backtrace_symbols_fd((void*)0, 0, 0) in C library None... (cached) yes
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file linux/kvm.h... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Building in /net/if22/ml2au/gem5/UndertestBetaGemv1/build/X86
+Using saved variables file /net/if22/ml2au/gem5/UndertestBetaGemv1/build/variables/X86
+scons: done reading SConscript files.
+scons: Building targets ...
+ [NEW DEPS] X86/arch/x86/generated/inc.d -> x86-deps
+ [ENVIRONS] x86-deps -> x86-environs
+ [VER TAGS]  -> X86/sim/tags.cc
+ [    LINK]  -> X86/gem5.opt
+scons: done building targets.
+
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled May  2 2017 00:05:02
+gem5 started May  2 2017 12:00:32
+gem5 executing on falcon1, pid 25041
+command line: build/X86/gem5.opt -d /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftStatistcRatio1 configs/example/se.py --num-cpus=16 --rangeFileName=/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt --warmup-insts=50984 --cpu-type=detailed --mem-type=SimpleMemory --caches --l2cache --l1d_size=32kB --l2_size=512kB --l3cache --l3_size=32MB --ratio=1 --mem-size=8GB -c MarziehTests/fftRange '--options=262144 /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0'
+
+Global frequency set at 1000000000000 ticks per second
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0ratio is 1
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0ratio is 1
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled May  2 2017 00:05:02
+gem5 started May  2 2017 12:00:32
+gem5 executing on falcon1, pid 25040
+command line: build/X86/gem5.opt -d /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftStatistcRatio8 configs/example/se.py --num-cpus=16 --rangeFileName=/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt --warmup-insts=50984 --cpu-type=detailed --mem-type=SimpleMemory --caches --l2cache --l1d_size=32kB --l2_size=512kB --l3cache --l3_size=32MB --ratio=8 --mem-size=8GB -c MarziehTests/fftRange '--options=262144 /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0'
+
+Global frequency set at 1000000000000 ticks per second
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0ratio is 8
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_1ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_1ratio is 1
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_1ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_1ratio is 1
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_2ratio is 8
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_2ratio is 1
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_2ratio is 8
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_2ratio is 1
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_3ratio is 8
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_3ratio is 1
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_3ratio is 8
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_3ratio is 1
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_4ratio is 8
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_4ratio is 1
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_4ratio is 8
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_4ratio is 1
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_5ratio is 8
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_5ratio is 1
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_5ratio is 8
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_5ratio is 1
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_6ratio is 8
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_6ratio is 1
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_6ratio is 8
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_6ratio is 1
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_7ratio is 8
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_7ratio is 1
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_7ratio is 8
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_7ratio is 1
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_8ratio is 8
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_8ratio is 1
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_8ratio is 8
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_8ratio is 1
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_9ratio is 1
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_9ratio is 8
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_9ratio is 1
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_9ratio is 8
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_10ratio is 1
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_10ratio is 8
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_10ratio is 1
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_10ratio is 8
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_11ratio is 1
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_11ratio is 8
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_11ratio is 1
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_11ratio is 8
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_12ratio is 1
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_12ratio is 8
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_12ratio is 1
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_12ratio is 8
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_13ratio is 1
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_13ratio is 8
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_13ratio is 1
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_13ratio is 8
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_14ratio is 1
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_14ratio is 8
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_14ratio is 1
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_14ratio is 8
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_15ratio is 1
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_15ratio is 8
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_15ratio is 1
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_15ratio is 8
+warn: Sockets disabled, not accepting gdb connections
+warn: Sockets disabled, not accepting gdb connections
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+**** REAL SIMULATION ****
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+**** REAL SIMULATION ****
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+info: Entering event queue @ 0.  Starting simulation...
+info: Entering event queue @ 0.  Starting simulation...
+warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/net/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRange'
+info: Increasing stack size by one page.
+warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/net/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRange'
+info: Increasing stack size by one page.
+warn: ignoring syscall access(...)
+warn: ignoring syscall access(...)
+---waited accesses number: 2688  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: 2688  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: a80  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+---waited accesses number: a80  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+---waited accesses number: 5f1  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: 5f1  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+---waited accesses number: 5f1  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: 5f1  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+Exiting @ tick 227157798483 because target called exit()
+Exiting @ tick 303312494556 because target called exit()
+scons: Reading SConscript files ...
+Checking for C header file Python.h... (cached) yes
+Checking for C library pthread... (cached) yes
+Checking for C library dl... (cached) yes
+Checking for C library util... (cached) yes
+Checking for C library m... (cached) yes
+Checking for C library python2.7... (cached) yes
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for GOOGLE_PROTOBUF_VERIFY_VERSION in C++ library protobuf... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) no
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library rt... (cached) yes
+Checking for C library tcmalloc... (cached) yes
+Checking for backtrace_symbols_fd((void*)0, 0, 0) in C library None... (cached) yes
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file linux/kvm.h... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Building in /net/if22/ml2au/gem5/UndertestBetaGemv1/build/X86
+Using saved variables file /net/if22/ml2au/gem5/UndertestBetaGemv1/build/variables/X86
+scons: done reading SConscript files.
+scons: Building targets ...
+ [NEW DEPS] X86/arch/x86/generated/inc.d -> x86-deps
+ [ENVIRONS] x86-deps -> x86-environs
+ [VER TAGS]  -> X86/sim/tags.cc
+ [    LINK]  -> X86/gem5.opt
+scons: done building targets.
+
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled May  2 2017 00:05:02
+gem5 started May  2 2017 17:33:36
+gem5 executing on shiftlab0, pid 13814
+command line: build/X86/gem5.opt -d /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftStatistcRatio8 configs/example/se.py --num-cpus=16 --rangeFileName=/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt --warmup-insts=50984 --cpu-type=detailed --mem-type=DDR3_1600_x64 --caches --l2cache --l1d_size=32kB --l2_size=256kB --l3cache --l3_size=8MB --ratio=8 --mem-size=8GB -c MarziehTests/fftRange '--options=262144 /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0'
+
+Global frequency set at 1000000000000 ticks per second
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0ratio is 8
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_1ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_1ratio is 8
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_2ratio is 8
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_2ratio is 8
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_3ratio is 8
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_3ratio is 8
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_4ratio is 8
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_4ratio is 8
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_5ratio is 8
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_5ratio is 8
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_6ratio is 8
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_6ratio is 8
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled May  2 2017 00:05:02
+gem5 started May  2 2017 17:33:36
+gem5 executing on shiftlab0, pid 13815
+command line: build/X86/gem5.opt -d /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftStatistcRatio1 configs/example/se.py --num-cpus=16 --rangeFileName=/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt --warmup-insts=50984 --cpu-type=detailed --mem-type=DDR3_1600_x64 --caches --l2cache --l1d_size=32kB --l2_size=256kB --l3cache --l3_size=8MB --ratio=1 --mem-size=8GB -c MarziehTests/fftRange '--options=262144 /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0'
+
+Global frequency set at 1000000000000 ticks per second
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0ratio is 1
+-------InTLB------------cpuId=0------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0ratio is 1
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_7ratio is 8
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_7ratio is 8
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_8ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_1ratio is 1
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_8ratio is 8
+-------InTLB------------cpuId=1------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_1ratio is 1
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_9ratio is 8
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_2ratio is 1
+-------InTLB------------cpuId=2------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_2ratio is 1
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_9ratio is 8
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_3ratio is 1
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_10ratio is 8
+-------InTLB------------cpuId=3------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_3ratio is 1
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_10ratio is 8
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_4ratio is 1
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_11ratio is 8
+-------InTLB------------cpuId=4------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_4ratio is 1
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_11ratio is 8
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_5ratio is 1
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_12ratio is 8
+-------InTLB------------cpuId=5------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_5ratio is 1
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_12ratio is 8
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_6ratio is 1
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_13ratio is 8
+-------InTLB------------cpuId=6------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_6ratio is 1
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_13ratio is 8
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_7ratio is 1
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_14ratio is 8
+-------InTLB------------cpuId=7------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_7ratio is 1
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_14ratio is 8
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_8ratio is 1
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_15ratio is 8
+-------InTLB------------cpuId=8------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_8ratio is 1
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_15ratio is 8
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_9ratio is 1
+-------InTLB------------cpuId=9------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_9ratio is 1
+warn: Sockets disabled, not accepting gdb connections
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_10ratio is 1
+-------InTLB------------cpuId=10------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_10ratio is 1
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_11ratio is 1
+-------InTLB------------cpuId=11------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_11ratio is 1
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_12ratio is 1
+-------InTLB------------cpuId=12------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_12ratio is 1
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_13ratio is 1
+-------InTLB------------cpuId=13------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_13ratio is 1
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_14ratio is 1
+-------InTLB------------cpuId=14------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_14ratio is 1
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_15ratio is 1
+-------InTLB------------cpuId=15------- ranegFile is /if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_15ratio is 1
+warn: Sockets disabled, not accepting gdb connections
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+**** REAL SIMULATION ****
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+info: Entering event queue @ 0.  Starting simulation...
+warn: x86 cpuid family 0x0000: unimplemented function 7
+warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/net/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRange'
+info: Increasing stack size by one page.
+**** REAL SIMULATION ****
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ClockedObject: More than one power state change request encountered within the same simulation tick
+warn: ignoring syscall access(...)
+info: Entering event queue @ 0.  Starting simulation...
+warn: x86 cpuid family 0x0000: unimplemented function 7
+warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/net/if22/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRange'
+info: Increasing stack size by one page.
+warn: ignoring syscall access(...)
+---waited accesses number: 2596  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: a24  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+---waited accesses number: 42b  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: 42b  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+---waited accesses number: 2596  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: a24  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+---waited accesses number: 42b  ---------------------- beginAdrresse[0]  is 7ffff7dfe010   endAdrresse[0] is 7ffff7ffe010
+---waited accesses number: 42b  ---------------------- beginAdrresse[1]  is 7ffff7bfd010   endAdrresse[1] is 7ffff7dfd010
+Exiting @ tick 325241667765 because target called exit()
+Exiting @ tick 360141037794 because target called exit()

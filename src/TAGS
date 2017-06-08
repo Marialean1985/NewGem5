@@ -1,0 +1,1778 @@
+
+arch/hsail/Brig.h,328
+#define INTERNAL_BRIG_H42,1852
+typedef BrigBase BrigDirective;52,2144
+typedef BrigBase BrigOperand;53,2176
+enum BrigMemoryFenceSegments 55,2207
+    BRIG_MEMORY_FENCE_SEGMENT_GLOBAL 59,2408
+    BRIG_MEMORY_FENCE_SEGMENT_GROUP 60,2450
+    BRIG_MEMORY_FENCE_SEGMENT_IMAGE 61,2491
+    BRIG_MEMORY_FENCE_SEGMENT_LAST 62,2532
+
+arch/alpha/ecoff_machdep.h,708
+typedef  int16_t coff_short;41,1826
+typedef uint16_t coff_ushort;42,1855
+typedef  int32_t coff_int;43,1885
+typedef uint32_t coff_uint;44,1912
+typedef  int64_t coff_long;45,1940
+typedef uint64_t coff_ulong;46,1968
+typedef uint64_t coff_addr;47,1997
+#define ECOFF_LDPGSZ 49,2026
+#define ECOFF_PAD 51,2053
+#define ECOFF_MACHDEP 54,2116
+#define ECOFF_MAGIC_ALPHA	59,2227
+#define ECOFF_MAGIC_NETBSD_ALPHA	60,2259
+#define ECOFF_BADMAG(61,2297
+#define ECOFF_FLAG_EXEC	65,2440
+#define ECOFF_SEGMENT_ALIGNMENT(66,2471
+#define	ECOFF_FLAG_OBJECT_TYPE_MASK	69,2566
+#define		ECOFF_OBJECT_TYPE_NO_SHARED	70,2609
+#define		ECOFF_OBJECT_TYPE_SHARABLE	71,2653
+#define		ECOFF_OBJECT_TYPE_CALL_SHARED	72,2696
+
+arch/alpha/aout_machdep.h,738
+#define __AOUT_MACHDEP_H__33,1670
+struct aout_exechdr 38,1761
+    uint16_t    magic;39,1783
+    uint16_t    vstamp;40,1833
+    uint16_t    bldrev;41,1885
+    uint16_t    padcell;42,1926
+    uint64_t    tsize;43,1971
+    uint64_t    dsize;44,2026
+    uint64_t    bsize;45,2081
+    uint64_t    entry;46,2135
+    uint64_t    text_start;47,2184
+    uint64_t    data_start;48,2239
+    uint64_t    bss_start;49,2294
+    uint32_t    gprmask;50,2348
+    uint32_t    fprmask;51,2410
+    uint64_t    gp_value;52,2472
+#define AOUT_LDPGSZ 55,2538
+#define N_GETMAGIC(57,2568
+#define N_BADMAX59,2606
+#define N_TXTADDR(61,2624
+#define N_DATADDR(62,2666
+#define N_BSSADDR(63,2708
+#define N_TXTOFF(65,2750
+#define N_DATOFF(68,2846
+
+base/fenv.c,107
+static const int m5_round_ops[m5_round_ops38,1714
+void m5_fesetround(40,1805
+int m5_fegetround(46,1902
+
+base/loader/coff_sym.h,6256
+#define _SYM_H52,2447
+typedef struct ecoff_symhdr 99,4157
+    coff_short  magic;100,4187
+    coff_short  vstamp;101,4257
+    coff_int    ilineMax;102,4309
+    coff_int    idnMax;103,4377
+    coff_int    ipdMax;104,4449
+    coff_int    isymMax;105,4508
+    coff_int    ioptMax;106,4570
+    coff_int    iauxMax;107,4651
+    coff_int    issMax;108,4724
+    coff_int    issExtMax;109,4791
+    coff_int    ifdMax;110,4861
+    coff_int    crfd;111,4933
+    coff_int    iextMax;112,5014
+    coff_addr   cbLine;113,5084
+    coff_addr   cbLineOffset;114,5162
+    coff_addr   cbDnOffset;115,5238
+    coff_addr   cbPdOffset;116,5311
+    coff_addr   cbSymOffset;117,5386
+    coff_addr   cbOptOffset;118,5456
+    coff_addr   cbAuxOffset;119,5532
+    coff_addr   cbSsOffset;120,5613
+    coff_addr   cbSsExtOffset;121,5684
+    coff_addr   cbFdOffset;122,5758
+    coff_addr   cbRfdOffset;123,5828
+    coff_addr   cbExtOffset;124,5907
+} HDRR, *pHDRR;pHDRR126,6048
+#define cbHDRR 127,6064
+#define hdrNil 128,6092
+typedef struct ecoff_fdr 147,6715
+    coff_addr   adr;148,6742
+    coff_addr   cbLineOffset;149,6816
+    coff_addr   cbLine;150,6897
+    coff_addr   cbSs;151,6963
+    coff_int    rss;152,7027
+    coff_int    issBase;153,7097
+    coff_int    isymBase;154,7155
+    coff_int    csym;155,7214
+    coff_int    ilineBase;156,7276
+    coff_int    cline;157,7334
+    coff_int    ioptBase;158,7401
+    coff_int    copt;159,7467
+    coff_int    ipdFirst;160,7542
+    coff_int    cpd;161,7614
+    coff_int    iauxBase;162,7686
+    coff_int    caux;163,7749
+    coff_int    rfdBase;164,7821
+    coff_int    crfd;165,7894
+    unsigned lang:lang166,7960
+    unsigned fMerge 167,8013
+    unsigned fReadin 168,8083
+    unsigned fBigendian 169,8163
+    unsigned glevel 171,8287
+    unsigned reserved 172,8359
+    coff_uint   reserved2;173,8418
+} FDR, *pFDR;pFDR174,8445
+#define cbFDR 175,8459
+#define fdNil 176,8485
+#define ifdNil 177,8509
+#define ifdTemp 178,8527
+#define ilnNil 179,8545
+typedef struct pdr 191,8800
+    coff_addr   adr;192,8821
+    coff_addr   cbLineOffset;193,8896
+    coff_int    isym;194,8982
+    coff_int    iline;195,9050
+    coff_uint   regmask;196,9116
+    coff_int    regoffset;197,9173
+    coff_int    iopt;198,9232
+    coff_uint   fregmask;199,9306
+    coff_int    fregoffset;200,9378
+    coff_int    frameoffset;201,9452
+    coff_int    lnLow;202,9501
+    coff_int    lnHigh;203,9568
+    unsigned gp_prologue 205,9686
+    unsigned gp_used 206,9747
+    unsigned reg_frame 207,9815
+    unsigned prof 208,9886
+    unsigned reserved 209,9942
+    unsigned localoff 210,10003
+    coff_short  framereg;211,10076
+    coff_short  pcreg;212,10137
+} PDR, *pPDR;pPDR213,10202
+#define cbPDR 214,10216
+#define pdNil 215,10242
+#define ipdNil 216,10267
+typedef struct runtime_pdr 227,10569
+    coff_addr   adr;228,10598
+    coff_uint   regmask;229,10673
+    coff_int    regoffset;230,10730
+    coff_uint   fregmask;231,10789
+    coff_int    fregoffset;232,10861
+    coff_int    frameoffset;233,10935
+    coff_ushort framereg;234,10984
+    coff_ushort pcreg;235,11045
+    coff_int    irpss;236,11110
+    coff_uint   reserved;237,11184
+    struct exception_info *exception_info;exception_info238,11210
+} RPDR, *pRPDR;pRPDR239,11285
+#define cbRPDR 240,11301
+#define rpdNil 241,11329
+typedef coff_int LINER,256,11760
+typedef coff_int LINER, *pLINER;pLINER256,11760
+#define lineNil 257,11793
+#define cbLINER 258,11821
+#define ilineNil 259,11851
+typedef struct ecoff_sym 267,11947
+    coff_long   value;268,11974
+    coff_int    iss;269,12028
+    unsigned st 270,12098
+    unsigned sc 271,12140
+    unsigned reserved 272,12202
+    unsigned index 273,12249
+} SYMR, *pSYMR;pSYMR274,12312
+#define symNil 275,12328
+#define cbSYMR 276,12354
+#define isymNil 277,12382
+#define indexNil 278,12401
+#define issNil 279,12426
+#define issNull 280,12444
+#define IssFSb(286,12594
+typedef struct ecoff_extsym 293,12799
+    SYMR        asym;294,12829
+    unsigned jmptbl:jmptbl295,12891
+    unsigned cobol_main:cobol_main296,12961
+    unsigned weakext:weakext297,13032
+    unsigned reserved:reserved298,13086
+    coff_int ifd;299,13148
+} EXTR, *pEXTR;pEXTR300,13228
+#define extNil 301,13244
+#define cbEXTR 302,13270
+    unsigned fBitfield 311,13410
+    unsigned continued 312,13474
+    unsigned bt 313,13549
+    unsigned tq4 314,13590
+    unsigned tq5 315,13612
+    unsigned tq0 317,13670
+    unsigned tq1 318,13692
+    unsigned tq2 319,13754
+    unsigned tq3 320,13776
+} TIR, *pTIR;pTIR321,13798
+#define cbTIR 322,13812
+#define tiNil 323,13838
+#define itqMax 324,13862
+    unsigned    rfd 334,14025
+    unsigned    index 335,14095
+} RNDXR, *pRNDXR;pRNDXR336,14158
+#define cbRNDXR 337,14176
+#define rndxNil 338,14206
+    coff_uint   rfd;344,14395
+    coff_uint   index;345,14451
+} DNR, *pDNR;pDNR346,14510
+#define cbDNR 347,14524
+#define dnNil 348,14550
+#define cAuxMax 374,15469
+    TIR ti;378,15575
+    RNDXR       rndx;379,15629
+    coff_int    dnLow;380,15700
+    coff_int    dnHigh;381,15752
+    coff_int    isym;382,15805
+    coff_int    iss;383,15876
+    coff_int    width;384,15949
+    coff_int    count;385,16028
+} AUXU, *pAUXU;pAUXU386,16098
+#define cbAUXU 387,16114
+#define auxNil 388,16142
+#define iauxNil 389,16168
+    unsigned ot:ot404,16529
+    unsigned value:value405,16585
+    RNDXR       rndx;406,16649
+    coff_ulong  offset;407,16719
+} OPTR, *pOPTR;pOPTR408,16778
+#define optNil 409,16794
+#define cbOPTR 410,16822
+#define ioptNil 411,16850
+typedef coff_long RFDT,423,17173
+typedef coff_long RFDT, *pRFDT;pRFDT423,17173
+#define cbRFDT 424,17205
+#define rfdNil 425,17233
+typedef coff_int FIT,432,17472
+typedef coff_int FIT, *pFIT;pFIT432,17472
+#define cbFIT 433,17501
+#define ifiNil 434,17529
+#define fiNil 435,17548
+#define ifdNil 438,17600
+#define ilnNil 439,17618
+#define ipdNil 440,17636
+#define ilineNil 441,17654
+#define isymNil 442,17674
+#define indexNil 443,17693
+#define issNil 444,17719
+#define issNull 445,17737
+#define itqMax 446,17755
+#define iauxNil 447,17772
+#define ioptNil 448,17791
+#define rfdNil 449,17810
+#define ifiNil 450,17828
+
+base/loader/exec_ecoff.h,1515
+#define	_SYS_EXEC_ECOFF_H_38,1799
+struct ecoff_filehdr 40,1827
+        coff_ushort f_magic;41,1850
+        coff_ushort f_nscns;42,1898
+        coff_uint   f_timdat;43,1947
+        coff_ulong  f_symptr;44,2003
+        coff_uint   f_nsyms;45,2067
+        coff_ushort f_opthdr;46,2128
+        coff_ushort f_flags;47,2191
+struct ecoff_aouthdr 50,2239
+        coff_ushort magic;51,2262
+        coff_ushort vstamp;52,2289
+        coff_ulong  tsize;54,2335
+        coff_ulong  dsize;55,2362
+        coff_ulong  bsize;56,2389
+        coff_ulong  entry;57,2416
+        coff_ulong  text_start;58,2443
+        coff_ulong  data_start;59,2475
+        coff_ulong  bss_start;60,2507
+        ECOFF_MACHDEP;61,2538
+struct ecoff_scnhdr 64,2565
+        char	s_name[s_name65,2615
+        coff_ulong  s_paddr;66,2650
+        coff_ulong  s_vaddr;67,2711
+        coff_ulong  s_size;68,2760
+        coff_ulong  s_scnptr;69,2800
+        coff_ulong  s_relptr;70,2860
+        coff_ulong  s_lnnoptr;71,2922
+        coff_ushort s_nreloc;72,2984
+        coff_ushort s_nlnno;73,3044
+        coff_uint   s_flags;74,3097
+struct ecoff_exechdr 77,3142
+        struct ecoff_filehdr f;78,3165
+        struct ecoff_aouthdr a;79,3197
+#define ECOFF_HDR_SIZE 82,3233
+#define ECOFF_OMAGIC 84,3288
+#define ECOFF_NMAGIC 85,3314
+#define ECOFF_ZMAGIC 86,3340
+#define ECOFF_ROUND(88,3367
+#define ECOFF_BLOCK_ALIGN(91,3446
+#define ECOFF_TXTOFF(95,3584
+#define ECOFF_DATOFF(100,3797
+#define ECOFF_SEGMENT_ALIGN(103,3893
+
+base/loader/exec_aout.h,183
+#define _SYS_EXEC_AOUT_H_38,1830
+#define	N_PAGSIZ(41,1874
+#define	OMAGIC	45,1931
+#define	NMAGIC	46,1976
+#define	ZMAGIC	47,2018
+#define	N_ALIGN(49,2065
+#define	N_BADMAG(54,2220
+
+base/loader/coff_symconst.h,2988
+#define GLEVEL_0 62,2778
+#define GLEVEL_1 63,2804
+#define GLEVEL_2 64,2830
+#define GLEVEL_3 65,2895
+#define magicSym 68,2954
+#define magicSym2 70,3044
+#define langC 73,3097
+#define langPascal 74,3123
+#define langFortran 75,3149
+#define langAssembler 76,3175
+#define langMachine 77,3255
+#define langNil 78,3281
+#define langAda 79,3307
+#define langPl1 80,3333
+#define langCobol 81,3359
+#define langStdc 82,3385
+#define langCplusplus 83,3462
+#define langCplusplusV2 84,3530
+#define langMax 85,3581
+#define scNil 93,3746
+#define scText 94,3772
+#define scData 95,3822
+#define scBss 96,3884
+#define scRegister 97,3949
+#define scAbs 98,4022
+#define scUndefined 99,4088
+#define scCdbLocal 100,4137
+#define scBits 101,4208
+#define scCdbSystem 102,4266
+#define scDbx 103,4347
+#define scRegImage 104,4410
+#define scInfo 105,4478
+#define scUserStruct 106,4553
+#define scSData 107,4634
+#define scSBss 108,4698
+#define scRData 109,4764
+#define scVar 110,4832
+#define scCommon 111,4901
+#define scSCommon 112,4955
+#define scVarRegister 113,5006
+#define scVariant 114,5072
+#define scSUndefined 115,5125
+#define scInit 116,5194
+#define scBasedVar 117,5253
+#define scXData 118,5321
+#define scPData 119,5383
+#define scFini 120,5439
+#define scRConst 121,5491
+#define scMax 122,5545
+#define stNil 129,5600
+#define stGlobal 130,5654
+#define stStatic 131,5708
+#define stParam 132,5753
+#define stLocal 133,5810
+#define stLabel 134,5863
+#define stProc 135,5907
+#define stBlock 136,5969
+#define stEnd 137,6027
+#define stMember 138,6083
+#define stTypedef 139,6162
+#define stFile 140,6216
+#define stRegReloc 141,6264
+#define stForward 142,6322
+#define stStaticProc 143,6379
+#define stConstant 144,6445
+#define stStaParam 145,6489
+#define stStruct 147,6628
+#define stUnion 148,6708
+#define stEnum 149,6787
+#define stIndirect 150,6866
+#define stStr 152,6980
+#define stNumber 153,7025
+#define stExpr 154,7091
+#define stType 155,7139
+#define stMax 156,7195
+#define tqNil 161,7310
+#define tqPtr 162,7359
+#define tqProc 163,7397
+#define tqArray 164,7437
+#define tqFar 165,7471
+#define tqVol 166,7533
+#define tqConst 167,7572
+#define tqMax 168,7608
+#define btNil 171,7662
+#define btAdr 172,7731
+#define btChar 173,7808
+#define btUChar 174,7856
+#define btShort 175,7913
+#define btUShort 176,7957
+#define btInt 177,8010
+#define btUInt 178,8052
+#define btLong 179,8103
+#define btULong 180,8146
+#define btFloat 181,8198
+#define btDouble 182,8249
+#define btStruct 183,8301
+#define btUnion 184,8358
+#define btEnum 185,8412
+#define btTypedef 186,8461
+#define btRange 187,8537
+#define btSet 188,8591
+#define btComplex 189,8641
+#define btDComplex 190,8695
+#define btIndirect 191,8756
+#define btFixedDec 192,8821
+#define btFloatDec 193,8873
+#define btString 194,8925
+#define btBit 195,8995
+#define btPicture 196,9052
+#define btVoid 197,9098
+#define btLongLong 198,9141
+#define btULongLong 199,9189
+#define btMax 200,9246
+
+dev/net/ns_gige_reg.h,21630
+#define __DEV_NS_GIGE_REG_H__37,1756
+enum DeviceRegisterAddress 40,1821
+    CR 41,1850
+    CR =                0x00,x0041,1850
+    CFGR 42,1880
+    CFGR =              0x04,x0442,1880
+    MEAR 43,1910
+    MEAR =              0x08,x0843,1910
+    PTSCR 44,1940
+    PTSCR =             0x0c,x0c44,1940
+    ISR 45,1970
+    ISR =               0x10,x1045,1970
+    IMR 46,2000
+    IMR =               0x14,x1446,2000
+    IER 47,2030
+    IER =               0x18,x1847,2030
+    IHR 48,2060
+    IHR =               0x1c,x1c48,2060
+    TXDP 49,2090
+    TXDP =              0x20,x2049,2090
+    TXDP_HI 50,2120
+    TXDP_HI =           0x24,x2450,2120
+    TX_CFG 51,2150
+    TX_CFG =            0x28,x2851,2150
+    GPIOR 52,2180
+    GPIOR =             0x2c,x2c52,2180
+    RXDP 53,2210
+    RXDP =              0x30,x3053,2210
+    RXDP_HI 54,2240
+    RXDP_HI =           0x34,x3454,2240
+    RX_CFG 55,2270
+    RX_CFG =            0x38,x3855,2270
+    PQCR 56,2300
+    PQCR =              0x3c,x3c56,2300
+    WCSR 57,2330
+    WCSR =              0x40,x4057,2330
+    PCR 58,2360
+    PCR =               0x44,x4458,2360
+    RFCR 59,2390
+    RFCR =              0x48,x4859,2390
+    RFDR 60,2420
+    RFDR =              0x4c,x4c60,2420
+    BRAR 61,2450
+    BRAR =              0x50,x5061,2450
+    BRDR 62,2480
+    BRDR =              0x54,x5462,2480
+    SRR 63,2510
+    SRR =               0x58,x5863,2510
+    MIBC 64,2540
+    MIBC =              0x5c,x5c64,2540
+    MIB_START 65,2570
+    MIB_START =         0x60,x6065,2570
+    MIB_END 66,2600
+    MIB_END =           0x88,x8866,2600
+    VRCR 67,2630
+    VRCR =              0xbc,xbc67,2630
+    VTCR 68,2660
+    VTCR =              0xc0,xc068,2660
+    VDR 69,2690
+    VDR =               0xc4,xc469,2690
+    CCSR 70,2720
+    CCSR =              0xcc,xcc70,2720
+    TBICR 71,2750
+    TBICR =             0xe0,xe071,2750
+    TBISR 72,2780
+    TBISR =             0xe4,xe472,2780
+    TANAR 73,2810
+    TANAR =             0xe8,xe873,2810
+    TANLPAR 74,2840
+    TANLPAR =           0xec,xec74,2840
+    TANER 75,2870
+    TANER =             0xf0,xf075,2870
+    TESR 76,2900
+    TESR =              0xf4,xf476,2900
+    M5REG 77,2930
+    M5REG =             0xf8,xf877,2930
+    LAST 78,2960
+    LAST =              0xf8,xf878,2960
+    RESERVED 79,2990
+    RESERVED =          0xfcxfc79,2990
+enum ChipCommandRegister 83,3051
+     CR_TXE 84,3078
+     CR_TXE =           0x00000001,x0000000184,3078
+     CR_TXD 85,3114
+     CR_TXD =           0x00000002,x0000000285,3114
+     CR_RXE 86,3150
+     CR_RXE =           0x00000004,x0000000486,3150
+     CR_RXD 87,3186
+     CR_RXD =           0x00000008,x0000000887,3186
+     CR_TXR 88,3222
+     CR_TXR =           0x00000010,x0000001088,3222
+     CR_RXR 89,3258
+     CR_RXR =           0x00000020,x0000002089,3258
+     CR_SWI 90,3294
+     CR_SWI =           0x00000080,x0000008090,3294
+     CR_RST 91,3330
+     CR_RST =           0x00000100x0000010091,3330
+enum ConfigurationRegisters 95,3398
+     CFGR_ZERO 96,3428
+     CFGR_ZERO =        0x00000000,x0000000096,3428
+     CFGR_LNKSTS 97,3464
+     CFGR_LNKSTS =      0x80000000,x8000000097,3464
+     CFGR_SPDSTS 98,3500
+     CFGR_SPDSTS =      0x60000000,x6000000098,3500
+     CFGR_SPDSTS1 99,3536
+     CFGR_SPDSTS1 =     0x40000000,x4000000099,3536
+     CFGR_SPDSTS0 100,3572
+     CFGR_SPDSTS0 =     0x20000000,x20000000100,3572
+     CFGR_DUPSTS 101,3608
+     CFGR_DUPSTS =      0x10000000,x10000000101,3608
+     CFGR_TBI_EN 102,3644
+     CFGR_TBI_EN =      0x01000000,x01000000102,3644
+     CFGR_RESERVED 103,3680
+     CFGR_RESERVED =    0x0e000000,x0e000000103,3680
+     CFGR_MODE_1000 104,3716
+     CFGR_MODE_1000 =   0x00400000,x00400000104,3716
+     CFGR_AUTO_1000 105,3752
+     CFGR_AUTO_1000 =   0x00200000,x00200000105,3752
+     CFGR_PINT_CTL 106,3788
+     CFGR_PINT_CTL =    0x001c0000,x001c0000106,3788
+     CFGR_PINT_DUPSTS 107,3824
+     CFGR_PINT_DUPSTS = 0x00100000,x00100000107,3824
+     CFGR_PINT_LNKSTS 108,3860
+     CFGR_PINT_LNKSTS = 0x00080000,x00080000108,3860
+     CFGR_PINT_SPDSTS 109,3896
+     CFGR_PINT_SPDSTS = 0x00040000,x00040000109,3896
+     CFGR_TMRTEST 110,3932
+     CFGR_TMRTEST =     0x00020000,x00020000110,3932
+     CFGR_MRM_DIS 111,3968
+     CFGR_MRM_DIS =     0x00010000,x00010000111,3968
+     CFGR_MWI_DIS 112,4004
+     CFGR_MWI_DIS =     0x00008000,x00008000112,4004
+     CFGR_T64ADDR 113,4040
+     CFGR_T64ADDR =     0x00004000,x00004000113,4040
+     CFGR_PCI64_DET 114,4076
+     CFGR_PCI64_DET =   0x00002000,x00002000114,4076
+     CFGR_DATA64_EN 115,4112
+     CFGR_DATA64_EN =   0x00001000,x00001000115,4112
+     CFGR_M64ADDR 116,4148
+     CFGR_M64ADDR =     0x00000800,x00000800116,4148
+     CFGR_PHY_RST 117,4184
+     CFGR_PHY_RST =     0x00000400,x00000400117,4184
+     CFGR_PHY_DIS 118,4220
+     CFGR_PHY_DIS =     0x00000200,x00000200118,4220
+     CFGR_EXTSTS_EN 119,4256
+     CFGR_EXTSTS_EN =   0x00000100,x00000100119,4256
+     CFGR_REQALG 120,4292
+     CFGR_REQALG =      0x00000080,x00000080120,4292
+     CFGR_SB 121,4328
+     CFGR_SB =          0x00000040,x00000040121,4328
+     CFGR_POW 122,4364
+     CFGR_POW =         0x00000020,x00000020122,4364
+     CFGR_EXD 123,4400
+     CFGR_EXD =         0x00000010,x00000010123,4400
+     CFGR_PESEL 124,4436
+     CFGR_PESEL =       0x00000008,x00000008124,4436
+     CFGR_BROM_DIS 125,4472
+     CFGR_BROM_DIS =    0x00000004,x00000004125,4472
+     CFGR_EXT_125 126,4508
+     CFGR_EXT_125 =     0x00000002,x00000002126,4508
+     CFGR_BEM 127,4544
+     CFGR_BEM =         0x00000001x00000001127,4544
+enum EEPROMAccessRegister 131,4612
+     MEAR_EEDI 132,4640
+     MEAR_EEDI =        0x00000001,x00000001132,4640
+     MEAR_EEDO 133,4676
+     MEAR_EEDO =        0x00000002,x00000002133,4676
+     MEAR_EECLK 134,4712
+     MEAR_EECLK =       0x00000004,x00000004134,4712
+     MEAR_EESEL 135,4748
+     MEAR_EESEL =       0x00000008,x00000008135,4748
+     MEAR_MDIO 136,4784
+     MEAR_MDIO =        0x00000010,x00000010136,4784
+     MEAR_MDDIR 137,4820
+     MEAR_MDDIR =       0x00000020,x00000020137,4820
+     MEAR_MDC 138,4856
+     MEAR_MDC =         0x00000040,x00000040138,4856
+enum PCITestControlRegister 142,4928
+     PTSCR_EEBIST_FAIL 143,4958
+     PTSCR_EEBIST_FAIL =        0x00000001,x00000001143,4958
+     PTSCR_EEBIST_EN 144,5002
+     PTSCR_EEBIST_EN =          0x00000002,x00000002144,5002
+     PTSCR_EELOAD_EN 145,5046
+     PTSCR_EELOAD_EN =          0x00000004,x00000004145,5046
+     PTSCR_RBIST_FAIL 146,5090
+     PTSCR_RBIST_FAIL =         0x000001b8,x000001b8146,5090
+     PTSCR_RBIST_DONE 147,5134
+     PTSCR_RBIST_DONE =         0x00000200,x00000200147,5134
+     PTSCR_RBIST_EN 148,5178
+     PTSCR_RBIST_EN =           0x00000400,x00000400148,5178
+     PTSCR_RBIST_RST 149,5222
+     PTSCR_RBIST_RST =          0x00002000,x00002000149,5222
+     PTSCR_RBIST_RDONLY 150,5266
+     PTSCR_RBIST_RDONLY =       0x000003f9x000003f9150,5266
+enum InterruptStatusRegister 154,5345
+     ISR_RESERVE 155,5376
+     ISR_RESERVE =      0x80000000,x80000000155,5376
+     ISR_TXDESC3 156,5412
+     ISR_TXDESC3 =      0x40000000,x40000000156,5412
+     ISR_TXDESC2 157,5448
+     ISR_TXDESC2 =      0x20000000,x20000000157,5448
+     ISR_TXDESC1 158,5484
+     ISR_TXDESC1 =      0x10000000,x10000000158,5484
+     ISR_TXDESC0 159,5520
+     ISR_TXDESC0 =      0x08000000,x08000000159,5520
+     ISR_RXDESC3 160,5556
+     ISR_RXDESC3 =      0x04000000,x04000000160,5556
+     ISR_RXDESC2 161,5592
+     ISR_RXDESC2 =      0x02000000,x02000000161,5592
+     ISR_RXDESC1 162,5628
+     ISR_RXDESC1 =      0x01000000,x01000000162,5628
+     ISR_RXDESC0 163,5664
+     ISR_RXDESC0 =      0x00800000,x00800000163,5664
+     ISR_TXRCMP 164,5700
+     ISR_TXRCMP =       0x00400000,x00400000164,5700
+     ISR_RXRCMP 165,5736
+     ISR_RXRCMP =       0x00200000,x00200000165,5736
+     ISR_DPERR 166,5772
+     ISR_DPERR =        0x00100000,x00100000166,5772
+     ISR_SSERR 167,5808
+     ISR_SSERR =        0x00080000,x00080000167,5808
+     ISR_RMABT 168,5844
+     ISR_RMABT =        0x00040000,x00040000168,5844
+     ISR_RTAB 169,5880
+     ISR_RTAB =         0x00020000,x00020000169,5880
+     ISR_RXSOVR 170,5916
+     ISR_RXSOVR =       0x00010000,x00010000170,5916
+     ISR_HIBINT 171,5952
+     ISR_HIBINT =       0x00008000,x00008000171,5952
+     ISR_PHY 172,5988
+     ISR_PHY =          0x00004000,x00004000172,5988
+     ISR_PME 173,6024
+     ISR_PME =          0x00002000,x00002000173,6024
+     ISR_SWI 174,6060
+     ISR_SWI =          0x00001000,x00001000174,6060
+     ISR_MIB 175,6096
+     ISR_MIB =          0x00000800,x00000800175,6096
+     ISR_TXURN 176,6132
+     ISR_TXURN =        0x00000400,x00000400176,6132
+     ISR_TXIDLE 177,6168
+     ISR_TXIDLE =       0x00000200,x00000200177,6168
+     ISR_TXERR 178,6204
+     ISR_TXERR =        0x00000100,x00000100178,6204
+     ISR_TXDESC 179,6240
+     ISR_TXDESC =       0x00000080,x00000080179,6240
+     ISR_TXOK 180,6276
+     ISR_TXOK =         0x00000040,x00000040180,6276
+     ISR_RXORN 181,6312
+     ISR_RXORN =        0x00000020,x00000020181,6312
+     ISR_RXIDLE 182,6348
+     ISR_RXIDLE =       0x00000010,x00000010182,6348
+     ISR_RXEARLY 183,6384
+     ISR_RXEARLY =      0x00000008,x00000008183,6384
+     ISR_RXERR 184,6420
+     ISR_RXERR =        0x00000004,x00000004184,6420
+     ISR_RXDESC 185,6456
+     ISR_RXDESC =       0x00000002,x00000002185,6456
+     ISR_RXOK 186,6492
+     ISR_RXOK =         0x00000001,x00000001186,6492
+     ISR_ALL 187,6528
+     ISR_ALL =          0x7FFFFFFF,x7FFFFFFF187,6528
+     ISR_DELAY 188,6564
+     ISR_DELAY =        (ISR_TXIDLE|ISR_TXIDLE188,6564
+     ISR_DELAY =        (ISR_TXIDLE|ISR_TXDESC|ISR_TXDESC188,6564
+     ISR_DELAY =        (ISR_TXIDLE|ISR_TXDESC|ISR_TXOK|ISR_TXOK188,6564
+                         ISR_RXIDLE|ISR_RXIDLE189,6621
+                         ISR_RXIDLE|ISR_RXDESC|ISR_RXDESC189,6621
+                         ISR_RXIDLE|ISR_RXDESC|ISR_RXOK)ISR_RXOK189,6621
+     ISR_NODELAY 190,6679
+     ISR_NODELAY =      (ISR_ALL 190,6679
+     ISR_NODELAY =      (ISR_ALL & ~ISR_DELAY)190,6679
+     ISR_IMPL 191,6727
+     ISR_IMPL =         (ISR_SWI|ISR_SWI191,6727
+     ISR_IMPL =         (ISR_SWI|ISR_TXIDLE|ISR_TXIDLE191,6727
+     ISR_IMPL =         (ISR_SWI|ISR_TXIDLE|ISR_TXDESC|ISR_TXDESC191,6727
+     ISR_IMPL =         (ISR_SWI|ISR_TXIDLE|ISR_TXDESC|ISR_TXOK|ISR_TXOK191,6727
+     ISR_IMPL =         (ISR_SWI|ISR_TXIDLE|ISR_TXDESC|ISR_TXOK|ISR_RXORN|ISR_RXORN191,6727
+                         ISR_RXIDLE|ISR_RXIDLE192,6802
+                         ISR_RXIDLE|ISR_RXDESC|ISR_RXDESC192,6802
+                         ISR_RXIDLE|ISR_RXDESC|ISR_RXOK)ISR_RXOK192,6802
+     ISR_NOIMPL 193,6860
+     ISR_NOIMPL =       (ISR_ALL 193,6860
+     ISR_NOIMPL =       (ISR_ALL & ~ISR_IMPL)193,6860
+enum TransmitConfigurationRegister 197,6948
+     TX_CFG_CSI 198,6985
+     TX_CFG_CSI =       0x80000000,x80000000198,6985
+     TX_CFG_HBI 199,7021
+     TX_CFG_HBI =       0x40000000,x40000000199,7021
+     TX_CFG_MLB 200,7057
+     TX_CFG_MLB =       0x20000000,x20000000200,7057
+     TX_CFG_ATP 201,7093
+     TX_CFG_ATP =       0x10000000,x10000000201,7093
+     TX_CFG_ECRETRY 202,7129
+     TX_CFG_ECRETRY =   0x00800000,x00800000202,7129
+     TX_CFG_BRST_DIS 203,7165
+     TX_CFG_BRST_DIS =  0x00080000,x00080000203,7165
+     TX_CFG_MXDMA1024 204,7201
+     TX_CFG_MXDMA1024 = 0x00000000,x00000000204,7201
+     TX_CFG_MXDMA512 205,7237
+     TX_CFG_MXDMA512 =  0x00700000,x00700000205,7237
+     TX_CFG_MXDMA256 206,7273
+     TX_CFG_MXDMA256 =  0x00600000,x00600000206,7273
+     TX_CFG_MXDMA128 207,7309
+     TX_CFG_MXDMA128 =  0x00500000,x00500000207,7309
+     TX_CFG_MXDMA64 208,7345
+     TX_CFG_MXDMA64 =   0x00400000,x00400000208,7345
+     TX_CFG_MXDMA32 209,7381
+     TX_CFG_MXDMA32 =   0x00300000,x00300000209,7381
+     TX_CFG_MXDMA16 210,7417
+     TX_CFG_MXDMA16 =   0x00200000,x00200000210,7417
+     TX_CFG_MXDMA8 211,7453
+     TX_CFG_MXDMA8 =    0x00100000,x00100000211,7453
+     TX_CFG_MXDMA 212,7489
+     TX_CFG_MXDMA =     0x00700000,x00700000212,7489
+     TX_CFG_FLTH_MASK 214,7526
+     TX_CFG_FLTH_MASK = 0x0000ff00,x0000ff00214,7526
+     TX_CFG_DRTH_MASK 215,7562
+     TX_CFG_DRTH_MASK = 0x000000ffx000000ff215,7562
+enum GeneralPurposeIOControlRegister 219,7643
+     GPIOR_UNUSED 220,7682
+     GPIOR_UNUSED =     0xffff8000,xffff8000220,7682
+     GPIOR_GP5_IN 221,7718
+     GPIOR_GP5_IN =     0x00004000,x00004000221,7718
+     GPIOR_GP4_IN 222,7754
+     GPIOR_GP4_IN =     0x00002000,x00002000222,7754
+     GPIOR_GP3_IN 223,7790
+     GPIOR_GP3_IN =     0x00001000,x00001000223,7790
+     GPIOR_GP2_IN 224,7826
+     GPIOR_GP2_IN =     0x00000800,x00000800224,7826
+     GPIOR_GP1_IN 225,7862
+     GPIOR_GP1_IN =     0x00000400,x00000400225,7862
+     GPIOR_GP5_OE 226,7898
+     GPIOR_GP5_OE =     0x00000200,x00000200226,7898
+     GPIOR_GP4_OE 227,7934
+     GPIOR_GP4_OE =     0x00000100,x00000100227,7934
+     GPIOR_GP3_OE 228,7970
+     GPIOR_GP3_OE =     0x00000080,x00000080228,7970
+     GPIOR_GP2_OE 229,8006
+     GPIOR_GP2_OE =     0x00000040,x00000040229,8006
+     GPIOR_GP1_OE 230,8042
+     GPIOR_GP1_OE =     0x00000020,x00000020230,8042
+     GPIOR_GP5_OUT 231,8078
+     GPIOR_GP5_OUT =    0x00000010,x00000010231,8078
+     GPIOR_GP4_OUT 232,8114
+     GPIOR_GP4_OUT =    0x00000008,x00000008232,8114
+     GPIOR_GP3_OUT 233,8150
+     GPIOR_GP3_OUT =    0x00000004,x00000004233,8150
+     GPIOR_GP2_OUT 234,8186
+     GPIOR_GP2_OUT =    0x00000002,x00000002234,8186
+     GPIOR_GP1_OUT 235,8222
+     GPIOR_GP1_OUT =    0x00000001x00000001235,8222
+enum ReceiveConfigurationRegister 239,8298
+     RX_CFG_AEP 240,8334
+     RX_CFG_AEP =       0x80000000,x80000000240,8334
+     RX_CFG_ARP 241,8370
+     RX_CFG_ARP =       0x40000000,x40000000241,8370
+     RX_CFG_STRIPCRC 242,8406
+     RX_CFG_STRIPCRC =  0x20000000,x20000000242,8406
+     RX_CFG_RX_FD 243,8442
+     RX_CFG_RX_FD =     0x10000000,x10000000243,8442
+     RX_CFG_ALP 244,8478
+     RX_CFG_ALP =       0x08000000,x08000000244,8478
+     RX_CFG_AIRL 245,8514
+     RX_CFG_AIRL =      0x04000000,x04000000245,8514
+     RX_CFG_MXDMA512 246,8550
+     RX_CFG_MXDMA512 =  0x00700000,x00700000246,8550
+     RX_CFG_MXDMA 247,8586
+     RX_CFG_MXDMA =     0x00700000,x00700000247,8586
+     RX_CFG_DRTH 248,8622
+     RX_CFG_DRTH =      0x0000003e,x0000003e248,8622
+     RX_CFG_DRTH0 249,8658
+     RX_CFG_DRTH0 =     0x00000002x00000002249,8658
+enum PauseControlStatusRegister 253,8733
+     PCR_PSEN 254,8767
+     PCR_PS_MCAST 255,8802
+     PCR_PS_DA 256,8837
+     PCR_STHI_8 257,8872
+     PCR_STLO_4 258,8907
+     PCR_FFHI_8K 259,8942
+     PCR_FFLO_4K 260,8977
+     PCR_PAUSE_CNT 261,9012
+     PCR_PAUSE_CNT =    0xFFFExFFFE261,9012
+enum ReceiveFilterMatchControlRegister 265,9090
+     RFCR_RFEN 266,9131
+     RFCR_RFEN =        0x80000000,x80000000266,9131
+     RFCR_AAB 267,9167
+     RFCR_AAB =         0x40000000,x40000000267,9167
+     RFCR_AAM 268,9203
+     RFCR_AAM =         0x20000000,x20000000268,9203
+     RFCR_AAU 269,9239
+     RFCR_AAU =         0x10000000,x10000000269,9239
+     RFCR_APM 270,9275
+     RFCR_APM =         0x08000000,x08000000270,9275
+     RFCR_APAT 271,9311
+     RFCR_APAT =        0x07800000,x07800000271,9311
+     RFCR_APAT3 272,9347
+     RFCR_APAT3 =       0x04000000,x04000000272,9347
+     RFCR_APAT2 273,9383
+     RFCR_APAT2 =       0x02000000,x02000000273,9383
+     RFCR_APAT1 274,9419
+     RFCR_APAT1 =       0x01000000,x01000000274,9419
+     RFCR_APAT0 275,9455
+     RFCR_APAT0 =       0x00800000,x00800000275,9455
+     RFCR_AARP 276,9491
+     RFCR_AARP =        0x00400000,x00400000276,9491
+     RFCR_MHEN 277,9527
+     RFCR_MHEN =        0x00200000,x00200000277,9527
+     RFCR_UHEN 278,9563
+     RFCR_UHEN =        0x00100000,x00100000278,9563
+     RFCR_ULM 279,9599
+     RFCR_ULM =         0x00080000,x00080000279,9599
+     RFCR_RFADDR 280,9635
+     RFCR_RFADDR =      0x000003ffx000003ff280,9635
+enum ReceiveFilterMatchDataRegister 284,9715
+     RFDR_BMASK 285,9753
+     RFDR_BMASK =       0x00030000,x00030000285,9753
+     RFDR_RFDATA0 286,9789
+     RFDR_RFDATA0 =     0x000000ff,x000000ff286,9789
+     RFDR_RFDATA1 287,9825
+     RFDR_RFDATA1 =     0x0000ff00x0000ff00287,9825
+enum ManagementInformationBaseControlRegister 291,9915
+     MIBC_MIBS 292,9963
+     MIBC_MIBS =        0x00000008,x00000008292,9963
+     MIBC_ACLR 293,9999
+     MIBC_ACLR =        0x00000004,x00000004293,9999
+     MIBC_FRZ 294,10035
+     MIBC_FRZ =         0x00000002,x00000002294,10035
+     MIBC_WRN 295,10071
+     MIBC_WRN =         0x00000001x00000001295,10071
+enum VLANIPReceiveControlRegister 299,10149
+     VRCR_RUDPE 300,10185
+     VRCR_RUDPE =       0x00000080,x00000080300,10185
+     VRCR_RTCPE 301,10221
+     VRCR_RTCPE =       0x00000040,x00000040301,10221
+     VRCR_RIPE 302,10257
+     VRCR_RIPE =        0x00000020,x00000020302,10257
+     VRCR_IPEN 303,10293
+     VRCR_IPEN =        0x00000010,x00000010303,10293
+     VRCR_DUTF 304,10329
+     VRCR_DUTF =        0x00000008,x00000008304,10329
+     VRCR_DVTF 305,10365
+     VRCR_DVTF =        0x00000004,x00000004305,10365
+     VRCR_VTREN 306,10401
+     VRCR_VTREN =       0x00000002,x00000002306,10401
+     VRCR_VTDEN 307,10437
+     VRCR_VTDEN =       0x00000001x00000001307,10437
+enum VLANIPTransmitControlRegister 311,10516
+     VTCR_PPCHK 312,10553
+     VTCR_PPCHK =       0x00000008,x00000008312,10553
+     VTCR_GCHK 313,10589
+     VTCR_GCHK =        0x00000004,x00000004313,10589
+     VTCR_VPPTI 314,10625
+     VTCR_VPPTI =       0x00000002,x00000002314,10625
+     VTCR_VGTI 315,10661
+     VTCR_VGTI =        0x00000001x00000001315,10661
+enum ClockrunControlStatusRegister 319,10739
+     CCSR_CLKRUN_EN 320,10776
+     CCSR_CLKRUN_EN =   0x00000001x00000001320,10776
+enum TBIControlRegister 324,10842
+     TBICR_MR_LOOPBACK 325,10868
+     TBICR_MR_LOOPBACK =        0x00004000,x00004000325,10868
+     TBICR_MR_AN_ENABLE 326,10912
+     TBICR_MR_AN_ENABLE =       0x00001000,x00001000326,10912
+     TBICR_MR_RESTART_AN 327,10956
+     TBICR_MR_RESTART_AN =      0x00000200x00000200327,10956
+enum TBIStatusRegister 331,11029
+     TBISR_MR_LINK_STATUS 332,11054
+     TBISR_MR_LINK_STATUS =     0x00000020,x00000020332,11054
+     TBISR_MR_AN_COMPLETE 333,11098
+     TBISR_MR_AN_COMPLETE =     0x00000004x00000004333,11098
+enum TBIAutoNegotiationAdvertisementRegister 337,11195
+     TANAR_NP 338,11242
+     TANAR_NP =         0x00008000,x00008000338,11242
+     TANAR_RF2 339,11278
+     TANAR_RF2 =        0x00002000,x00002000339,11278
+     TANAR_RF1 340,11314
+     TANAR_RF1 =        0x00001000,x00001000340,11314
+     TANAR_PS2 341,11350
+     TANAR_PS2 =        0x00000100,x00000100341,11350
+     TANAR_PS1 342,11386
+     TANAR_PS1 =        0x00000080,x00000080342,11386
+     TANAR_HALF_DUP 343,11422
+     TANAR_HALF_DUP =   0x00000040,x00000040343,11422
+     TANAR_FULL_DUP 344,11458
+     TANAR_FULL_DUP =   0x00000020,x00000020344,11458
+     TANAR_UNUSED 345,11494
+     TANAR_UNUSED =     0x00000E1Fx00000E1F345,11494
+enum M5ControlRegister 349,11559
+     M5REG_RESERVED 350,11584
+     M5REG_RESERVED =   0xfffffffc,xfffffffc350,11584
+     M5REG_RSS 351,11620
+     M5REG_RSS =        0x00000004,x00000004351,11620
+     M5REG_RX_THREAD 352,11656
+     M5REG_RX_THREAD =  0x00000002,x00000002352,11656
+     M5REG_TX_THREAD 353,11692
+     M5REG_TX_THREAD =  0x00000001x00000001353,11692
+struct ns_desc32 356,11731
+    uint32_t link;357,11750
+    uint32_t bufptr;358,11823
+    uint32_t cmdsts;359,11891
+    uint32_t extsts;360,11940
+struct ns_desc64 363,12015
+    uint64_t link;364,12034
+    uint64_t bufptr;365,12107
+    uint32_t cmdsts;366,12175
+    uint32_t extsts;367,12224
+enum CMDSTSFlatsForDescriptors 371,12334
+     CMDSTS_OWN 372,12367
+     CMDSTS_OWN =       0x80000000,x80000000372,12367
+     CMDSTS_MORE 373,12403
+     CMDSTS_MORE =      0x40000000,x40000000373,12403
+     CMDSTS_INTR 374,12439
+     CMDSTS_INTR =      0x20000000,x20000000374,12439
+     CMDSTS_ERR 375,12475
+     CMDSTS_ERR =       0x10000000,x10000000375,12475
+     CMDSTS_OK 376,12511
+     CMDSTS_OK =        0x08000000,x08000000376,12511
+     CMDSTS_LEN_MASK 377,12547
+     CMDSTS_LEN_MASK =  0x0000ffff,x0000ffff377,12547
+     CMDSTS_DEST_MASK 379,12584
+     CMDSTS_DEST_MASK = 0x01800000,x01800000379,12584
+     CMDSTS_DEST_SELF 380,12620
+     CMDSTS_DEST_SELF = 0x00800000,x00800000380,12620
+     CMDSTS_DEST_MULTI 381,12656
+     CMDSTS_DEST_MULTI = 0x01000000x01000000381,12656
+enum ExtendedFlagsForDescriptors 385,12733
+     EXTSTS_UDPERR 386,12768
+     EXTSTS_UDPERR =    0x00400000,x00400000386,12768
+     EXTSTS_UDPPKT 387,12804
+     EXTSTS_UDPPKT =    0x00200000,x00200000387,12804
+     EXTSTS_TCPERR 388,12840
+     EXTSTS_TCPERR =    0x00100000,x00100000388,12840
+     EXTSTS_TCPPKT 389,12876
+     EXTSTS_TCPPKT =    0x00080000,x00080000389,12876
+     EXTSTS_IPERR 390,12912
+     EXTSTS_IPERR =     0x00040000,x00040000390,12912
+     EXTSTS_IPPKT 391,12948
+     EXTSTS_IPPKT =     0x00020000x00020000391,12948
+SPDSTS_POLARITY(396,13024
+
+dev/pci/pcireg.h,5371
+#define __PCIREG_H__49,2361
+union PCIConfig 56,2464
+    uint8_t data[data57,2482
+        uint16_t vendor;60,2518
+        uint16_t device;61,2543
+        uint16_t command;62,2568
+        uint16_t status;63,2594
+        uint8_t revision;64,2619
+        uint8_t progIF;65,2645
+        uint8_t subClassCode;66,2669
+        uint8_t classCode;67,2699
+        uint8_t cacheLineSize;68,2726
+        uint8_t latencyTimer;69,2757
+        uint8_t headerType;70,2787
+        uint8_t bist;71,2815
+        uint32_t baseAddr[baseAddr72,2837
+        uint32_t cardbusCIS;73,2867
+        uint16_t subsystemVendorID;74,2896
+        uint16_t subsystemID;75,2932
+        uint32_t expansionROM;76,2962
+        uint8_t capabilityPtr;77,2993
+        uint8_t reserved[reserved81,3192
+        uint8_t interruptLine;82,3221
+        uint8_t interruptPin;83,3252
+        uint8_t minimumGrant;84,3282
+        uint8_t maximumLatency;85,3312
+#define PCI_VENDOR_ID 90,3377
+#define PCI_DEVICE_ID 91,3452
+#define PCI_COMMAND 92,3527
+#define PCI_STATUS 93,3602
+#define PCI_REVISION_ID 94,3677
+#define PCI_CLASS_CODE 95,3752
+#define PCI_SUB_CLASS_CODE 96,3827
+#define PCI_BASE_CLASS_CODE 97,3902
+#define PCI_CACHE_LINE_SIZE 98,3977
+#define PCI_LATENCY_TIMER 99,4053
+#define PCI_HEADER_TYPE 100,4129
+#define PCI_BIST 101,4204
+#define PCI_CMD_BME 104,4314
+#define PCI_CMD_MSE 105,4373
+#define PCI_CMD_IOSE 106,4432
+#define PCI0_BASE_ADDR0 109,4504
+#define PCI0_BASE_ADDR1 110,4579
+#define PCI0_BASE_ADDR2 111,4654
+#define PCI0_BASE_ADDR3 112,4729
+#define PCI0_BASE_ADDR4 113,4804
+#define PCI0_BASE_ADDR5 114,4879
+#define PCI0_CIS 115,4954
+#define PCI0_SUB_VENDOR_ID 116,5029
+#define PCI0_SUB_SYSTEM_ID 117,5104
+#define PCI0_ROM_BASE_ADDR 118,5179
+#define PCI0_CAP_PTR 119,5254
+#define PCI0_RESERVED 120,5329
+#define PCI0_INTERRUPT_LINE 121,5366
+#define PCI0_INTERRUPT_PIN 122,5441
+#define PCI0_MINIMUM_GRANT 123,5516
+#define PCI0_MAXIMUM_LATENCY 124,5591
+#define PCI1_BASE_ADDR0 127,5689
+#define PCI1_BASE_ADDR1 128,5764
+#define PCI1_PRI_BUS_NUM 129,5839
+#define PCI1_SEC_BUS_NUM 130,5914
+#define PCI1_SUB_BUS_NUM 131,5989
+#define PCI1_SEC_LAT_TIMER 132,6064
+#define PCI1_IO_BASE 133,6140
+#define PCI1_IO_LIMIT 134,6215
+#define PCI1_SECONDARY_STATUS 135,6290
+#define PCI1_MEM_BASE 136,6365
+#define PCI1_MEM_LIMIT 137,6440
+#define PCI1_PRF_MEM_BASE 138,6515
+#define PCI1_PRF_MEM_LIMIT 139,6590
+#define PCI1_PRF_BASE_UPPER 140,6665
+#define PCI1_PRF_LIMIT_UPPER 141,6740
+#define PCI1_IO_BASE_UPPER 142,6815
+#define PCI1_IO_LIMIT_UPPER 143,6890
+#define PCI1_RESERVED 144,6965
+#define PCI1_ROM_BASE_ADDR 145,7040
+#define PCI1_INTR_LINE 146,7115
+#define PCI1_INTR_PIN 147,7190
+#define PCI1_BRIDGE_CTRL 148,7265
+#define PCI_DEVICE_SPECIFIC 151,7368
+#define PCI_CONFIG_SIZE 152,7429
+#define PCI_VENDOR_DEC 155,7486
+#define PCI_VENDOR_NCR 156,7533
+#define PCI_VENDOR_QLOGIC 157,7580
+#define PCI_VENDOR_SIMOS 158,7627
+#define PCI_PRODUCT_DEC_PZA 161,7695
+#define PCI_PRODUCT_NCR_810 162,7742
+#define PCI_PRODUCT_QLOGIC_ISP1020 163,7789
+#define PCI_PRODUCT_SIMOS_SIMOS 164,7836
+#define PCI_PRODUCT_SIMOS_ETHER 165,7883
+#define PMCAP_ID 172,8094
+#define PMCAP_PC 173,8116
+#define PMCAP_PMCS 174,8138
+#define PMCAP_SIZE 175,8162
+#define MSICAP_ID 177,8187
+#define MSICAP_MC 178,8210
+#define MSICAP_MA 179,8233
+#define MSICAP_MUA 180,8256
+#define MSICAP_MD 181,8280
+#define MSICAP_MMASK 182,8303
+#define MSICAP_MPEND 183,8329
+#define MSICAP_SIZE 184,8355
+#define MSIXCAP_ID 186,8381
+#define MSIXCAP_MXC 187,8405
+#define MSIXCAP_MTAB 188,8430
+#define MSIXCAP_MPBA 189,8456
+#define MSIXCAP_SIZE 190,8482
+#define PXCAP_ID 192,8509
+#define PXCAP_PXCAP 193,8531
+#define PXCAP_PXDCAP 194,8556
+#define PXCAP_PXDC 195,8582
+#define PXCAP_PXDS 196,8606
+#define PXCAP_PXLCAP 197,8630
+#define PXCAP_PXLC 198,8656
+#define PXCAP_PXLS 199,8680
+#define PXCAP_PXDCAP2 200,8704
+#define PXCAP_PXDC2 201,8731
+#define PXCAP_SIZE 202,8756
+union PMCAP 208,8912
+    uint8_t data[data209,8926
+        uint16_t pid;211,8960
+        uint16_t pc;214,9058
+        uint16_t pmcs;223,9380
+union MSICAP 241,10026
+    uint8_t data[data242,10041
+        uint16_t mid;244,10076
+        uint16_t mc;247,10175
+        uint32_t ma;254,10430
+        uint32_t mua;257,10533
+        uint16_t md;258,10555
+        uint32_t mmask;259,10576
+        uint32_t mpend;260,10600
+union MSIXCAP 268,10749
+    uint8_t data[data269,10765
+        uint16_t mxid;271,10800
+        uint16_t mxc;274,10899
+        uint32_t mtab;279,11077
+        uint32_t mpba;282,11178
+union MSIXTable 288,11293
+        uint32_t addr_lo;290,11324
+        uint32_t addr_hi;291,11350
+        uint32_t msg_data;292,11376
+        uint32_t vec_ctrl;293,11403
+    } fields;294,11430
+    uint32_t data[data295,11444
+#define MSIXVECS_PER_PBA 298,11470
+struct MSIXPbaEntry 299,11498
+    uint64_t bits;300,11520
+struct PXCAP 307,11665
+    uint8_t data[data308,11680
+        uint16_t pxid;310,11715
+        uint16_t pxcap;313,11814
+        uint32_t pxdcap;319,12036
+        uint16_t pxdc;332,12555
+        uint16_t pxds;345,13041
+        uint32_t pxlcap;353,13332
+        uint16_t pxlc;365,13804
+        uint16_t pxls;375,14182
+        uint8_t reserved[reserved381,14416
+        uint32_t pxdcap2;382,14446
+        uint32_t pxdc2;399,15152
+
+dev/alpha/tsunamireg.h,2977
+#define __TSUNAMIREG_H__36,1674
+#define ALPHA_K0SEG_BASE 38,1700
+#define TSDEV_CC_CSR 41,1770
+#define TSDEV_CC_MTR 42,1799
+#define TSDEV_CC_MISC 43,1828
+#define TSDEV_CC_AAR0 45,1858
+#define TSDEV_CC_AAR1 46,1887
+#define TSDEV_CC_AAR2 47,1916
+#define TSDEV_CC_AAR3 48,1945
+#define TSDEV_CC_DIM0 49,1974
+#define TSDEV_CC_DIM1 50,2003
+#define TSDEV_CC_DIR0 51,2032
+#define TSDEV_CC_DIR1 52,2061
+#define TSDEV_CC_DRIR 53,2090
+#define TSDEV_CC_PRBEN 54,2119
+#define TSDEV_CC_IIC0 55,2148
+#define TSDEV_CC_IIC1 56,2177
+#define TSDEV_CC_MPR0 57,2206
+#define TSDEV_CC_MPR1 58,2235
+#define TSDEV_CC_MPR2 59,2264
+#define TSDEV_CC_MPR3 60,2293
+#define TSDEV_CC_DIM2 62,2323
+#define TSDEV_CC_DIM3 63,2352
+#define TSDEV_CC_DIR2 64,2381
+#define TSDEV_CC_DIR3 65,2410
+#define TSDEV_CC_IIC2 66,2439
+#define TSDEV_CC_IIC3 67,2468
+#define TSDEV_CC_BDIMS 70,2522
+#define TSDEV_CC_BDIRS 71,2556
+#define TSDEV_CC_IPIQ 72,2590
+#define TSDEV_CC_IPIR 73,2635
+#define TSDEV_CC_ITIR 74,2680
+#define TSDEV_PC_WSBA0 78,2746
+#define TSDEV_PC_WSBA1 79,2779
+#define TSDEV_PC_WSBA2 80,2812
+#define TSDEV_PC_WSBA3 81,2845
+#define TSDEV_PC_WSM0 82,2878
+#define TSDEV_PC_WSM1 83,2911
+#define TSDEV_PC_WSM2 84,2944
+#define TSDEV_PC_WSM3 85,2977
+#define TSDEV_PC_TBA0 86,3010
+#define TSDEV_PC_TBA1 87,3043
+#define TSDEV_PC_TBA2 88,3076
+#define TSDEV_PC_TBA3 89,3109
+#define TSDEV_PC_PCTL 90,3142
+#define TSDEV_PC_PLAT 91,3175
+#define TSDEV_PC_RES 92,3208
+#define TSDEV_PC_PERROR 93,3241
+#define TSDEV_PC_PERRMASK 94,3274
+#define TSDEV_PC_PERRSET 95,3307
+#define TSDEV_PC_TLBIV 96,3340
+#define TSDEV_PC_TLBIA 97,3373
+#define TSDEV_PC_PMONCTL 98,3406
+#define TSDEV_PC_PMONCNT 99,3439
+#define TSDEV_PC_SPST 101,3473
+#define TSDEV_DC_DSC 105,3527
+#define TSDEV_DC_STR 106,3560
+#define TSDEV_DC_DREV 107,3593
+#define TSDEV_DC_DSC2 108,3626
+#define TSDEV_PIC1_MASK 111,3673
+#define TSDEV_PIC2_MASK 112,3706
+#define TSDEV_PIC1_ISR 113,3739
+#define TSDEV_PIC2_ISR 114,3772
+#define TSDEV_PIC1_ACK 115,3805
+#define TSDEV_PIC2_ACK 116,3838
+#define TSDEV_DMA1_RESET 117,3871
+#define TSDEV_DMA2_RESET 118,3904
+#define TSDEV_DMA1_MODE 119,3937
+#define TSDEV_DMA2_MODE 120,3970
+#define TSDEV_DMA1_MASK 121,4003
+#define TSDEV_DMA2_MASK 122,4036
+#define TSDEV_CTRL_PORTB 123,4069
+#define TSDEV_TMR0_DATA 124,4102
+#define TSDEV_TMR1_DATA 125,4135
+#define TSDEV_TMR2_DATA 126,4168
+#define TSDEV_TMR_CTRL 127,4201
+#define TSDEV_KBD 128,4234
+#define TSDEV_DMA1_CMND 129,4267
+#define TSDEV_DMA1_STAT 130,4300
+#define TSDEV_DMA2_CMND 131,4344
+#define TSDEV_DMA2_STAT 132,4377
+#define TSDEV_DMA1_MMASK 133,4421
+#define TSDEV_DMA2_MMASK 134,4454
+#define TSDEV_KBD 137,4522
+#define TSDEV_RTC_ADDR 139,4556
+#define TSDEV_RTC_DATA 140,4589
+#define PCHIP_PCI0_MEMORY 142,4623
+#define PCHIP_PCI0_IO 143,4674
+#define TSUNAMI_UNCACHABLE_BIT 144,4725
+#define TSUNAMI_PCI0_MEMORY 145,4776
+#define TSUNAMI_PCI0_IO 146,4851
+#define PORTB_SPKR_HIGH 150,4960
+
+dev/alpha/access.h,786
+#define __ALPHA_ACCESS_H__32,1642
+#define ALPHA_ACCESS_VERSION 38,1737
+typedef unsigned uint32_t;41,1789
+typedef unsigned long uint64_t;42,1816
+struct AlphaAccess46,1895
+    uint32_t    last_offset;48,1916
+    uint32_t    version;49,1983
+    uint32_t    numCPUs;50,2030
+    uint32_t    intrClockFrequency;51,2077
+    uint64_t    cpuClock;52,2127
+    uint64_t    mem_size;53,2178
+    uint64_t    kernStart;56,2247
+    uint64_t    kernEnd;57,2294
+    uint64_t    entryPoint;58,2341
+    uint64_t    diskUnit;61,2415
+    uint64_t    diskCount;62,2462
+    uint64_t    diskPAddr;63,2509
+    uint64_t    diskBlock;64,2556
+    uint64_t    diskOperation;65,2603
+    uint64_t    outputChar;68,2686
+    uint64_t    inputChar;69,2756
+    uint64_t    cpuStack[cpuStack72,2841
+
+dev/mips/access.h,927
+#define __MIPS_ACCESS_H__32,1641
+#define MIPS_ACCESS_VERSION 38,1735
+#define CONSOLE_START_ADDRESS 39,1770
+#define REG_OFFSET 40,1811
+#define UART8250_BASE 41,1832
+#define UART8250_END 42,1865
+typedef unsigned uint32_t;44,1914
+typedef unsigned long uint64_t;45,1941
+struct MipsAccess49,2020
+    uint32_t    inputChar;51,2040
+    uint32_t    last_offset;52,2109
+    uint32_t    version;53,2176
+    uint32_t    numCPUs;54,2223
+    uint32_t    intrClockFrequency;55,2270
+    uint32_t    kernStart;58,2342
+    uint32_t    kernEnd;59,2389
+    uint32_t    entryPoint;60,2436
+                uint32_t        outputChar;63,2531
+    uint32_t    diskUnit;66,2644
+    uint32_t    diskCount;67,2691
+    uint32_t    diskPAddr;68,2738
+    uint32_t    diskBlock;69,2785
+    uint32_t    diskOperation;70,2832
+    uint32_t    cpuStack[cpuStack73,2907
+    uint64_t    cpuClock;80,3194
+    uint64_t    mem_size;81,3245
+
+dev/mips/maltareg.h,3414
+#define __MALTAREG_H__38,1713
+#define ALPHA_K0SEG_BASE 40,1737
+#define TSDEV_CC_CSR 43,1807
+#define TSDEV_CC_MTR 44,1836
+#define TSDEV_CC_MISC 45,1865
+#define TSDEV_CC_AAR0 47,1895
+#define TSDEV_CC_AAR1 48,1924
+#define TSDEV_CC_AAR2 49,1953
+#define TSDEV_CC_AAR3 50,1982
+#define TSDEV_CC_DIM0 51,2011
+#define TSDEV_CC_DIM1 52,2040
+#define TSDEV_CC_DIR0 53,2069
+#define TSDEV_CC_DIR1 54,2098
+#define TSDEV_CC_DRIR 55,2127
+#define TSDEV_CC_PRBEN 56,2156
+#define TSDEV_CC_IIC0 57,2185
+#define TSDEV_CC_IIC1 58,2214
+#define TSDEV_CC_MPR0 59,2243
+#define TSDEV_CC_MPR1 60,2272
+#define TSDEV_CC_MPR2 61,2301
+#define TSDEV_CC_MPR3 62,2330
+#define TSDEV_CC_DIM2 64,2360
+#define TSDEV_CC_DIM3 65,2389
+#define TSDEV_CC_DIR2 66,2418
+#define TSDEV_CC_DIR3 67,2447
+#define TSDEV_CC_IIC2 68,2476
+#define TSDEV_CC_IIC3 69,2505
+#define TSDEV_CC_BDIMS 72,2559
+#define TSDEV_CC_BDIRS 73,2593
+#define TSDEV_CC_IPIQ 74,2627
+#define TSDEV_CC_IPIR 75,2672
+#define TSDEV_CC_ITIR 76,2717
+#define TSDEV_PC_WSBA0 80,2783
+#define TSDEV_PC_WSBA1 81,2816
+#define TSDEV_PC_WSBA2 82,2849
+#define TSDEV_PC_WSBA3 83,2882
+#define TSDEV_PC_WSM0 84,2915
+#define TSDEV_PC_WSM1 85,2948
+#define TSDEV_PC_WSM2 86,2981
+#define TSDEV_PC_WSM3 87,3014
+#define TSDEV_PC_TBA0 88,3047
+#define TSDEV_PC_TBA1 89,3080
+#define TSDEV_PC_TBA2 90,3113
+#define TSDEV_PC_TBA3 91,3146
+#define TSDEV_PC_PCTL 92,3179
+#define TSDEV_PC_PLAT 93,3212
+#define TSDEV_PC_RES 94,3245
+#define TSDEV_PC_PERROR 95,3278
+#define TSDEV_PC_PERRMASK 96,3311
+#define TSDEV_PC_PERRSET 97,3344
+#define TSDEV_PC_TLBIV 98,3377
+#define TSDEV_PC_TLBIA 99,3410
+#define TSDEV_PC_PMONCTL 100,3443
+#define TSDEV_PC_PMONCNT 101,3476
+#define TSDEV_PC_SPST 103,3510
+#define TSDEV_DC_DSC 107,3564
+#define TSDEV_DC_STR 108,3597
+#define TSDEV_DC_DREV 109,3630
+#define TSDEV_DC_DSC2 110,3663
+#define TSDEV_PIC1_MASK 113,3710
+#define TSDEV_PIC2_MASK 114,3743
+#define TSDEV_PIC1_ISR 115,3776
+#define TSDEV_PIC2_ISR 116,3809
+#define TSDEV_PIC1_ACK 117,3842
+#define TSDEV_PIC2_ACK 118,3875
+#define TSDEV_DMA1_RESET 119,3908
+#define TSDEV_DMA2_RESET 120,3941
+#define TSDEV_DMA1_MODE 121,3974
+#define TSDEV_DMA2_MODE 122,4007
+#define TSDEV_DMA1_MASK 123,4040
+#define TSDEV_DMA2_MASK 124,4073
+#define TSDEV_CTRL_PORTB 125,4106
+#define TSDEV_TMR0_DATA 126,4139
+#define TSDEV_TMR1_DATA 127,4172
+#define TSDEV_TMR2_DATA 128,4205
+#define TSDEV_TMR_CTRL 129,4238
+#define TSDEV_KBD 130,4271
+#define TSDEV_DMA1_CMND 131,4304
+#define TSDEV_DMA1_STAT 132,4337
+#define TSDEV_DMA2_CMND 133,4381
+#define TSDEV_DMA2_STAT 134,4414
+#define TSDEV_DMA1_MMASK 135,4458
+#define TSDEV_DMA2_MMASK 136,4491
+#define TSDEV_KBD 139,4558
+#define ATA_PCI_DMA 142,4619
+#define ATA_PCI_DMA2 143,4652
+#define ATA_PCI_DMA3 144,4685
+#define ATA_PCI_DMA4 145,4718
+#define ATA_PCI_DMA5 146,4751
+#define ATA_PCI_DMA6 147,4784
+#define ATA_PCI_DMA7 148,4817
+#define TSDEV_RTC_ADDR 150,4851
+#define TSDEV_RTC_DATA 151,4884
+#define PCHIP_PCI0_MEMORY 153,4918
+#define PCHIP_PCI0_IO 154,4969
+#define TSUNAMI_UNCACHABLE_BIT 155,5020
+#define TSUNAMI_PCI0_MEMORY 156,5071
+#define TSUNAMI_PCI0_IO 157,5146
+#define UART_IER_RDI 162,5309
+#define UART_IER_THRI 163,5346
+#define UART_IER_RLSI 164,5383
+#define UART_LSR_TEMT 167,5422
+#define UART_LSR_THRE 168,5451
+#define UART_LSR_DR 169,5480
+#define UART_MCR_LOOP 171,5510
+#define PORTB_SPKR_HIGH 174,5576
+
+dev/rtcreg.h,816
+static const int RTC_SEC 33,1659
+static const int RTC_SEC_ALRM 34,1692
+static const int RTC_MIN 35,1730
+static const int RTC_MIN_ALRM 36,1763
+static const int RTC_HR 37,1801
+static const int RTC_HR_ALRM 38,1833
+static const int RTC_DOW 39,1870
+static const int RTC_DOM 40,1903
+static const int RTC_MON 41,1936
+static const int RTC_YEAR 42,1969
+static const int RTC_STAT_REGA 44,2004
+static const int RTCA_DV_4194304HZ 46,2044
+static const int RTCA_DV_1048576HZ 47,2086
+static const int RTCA_DV_32768HZ 48,2128
+static const int RTCA_DV_DISABLED0 49,2168
+static const int RTCA_DV_DISABLED1 50,2210
+static const int RTCA_RS_DISABLED 52,2253
+static const int RTCA_RS_1024HZ 53,2294
+static const int RTC_STAT_REGB 55,2334
+static const int RTC_STAT_REGC 57,2374
+static const int RTC_STAT_REGD 58,2413
+
+dev/virtio/virtio_ring.h,1149
+#define _VIRTIO_RING_H2,23
+#define VRING_DESC_F_NEXT	37,1964
+#define VRING_DESC_F_WRITE	39,2055
+#define VRING_DESC_F_INDIRECT	41,2151
+#define VRING_USED_F_NO_NOTIFY	46,2385
+#define VRING_AVAIL_F_NO_INTERRUPT	50,2583
+#define VIRTIO_RING_F_INDIRECT_DESC	53,2666
+#define VIRTIO_RING_F_EVENT_IDX	59,3001
+struct vring_desc 62,3117
+    uint64_t addr;64,3173
+    uint32_t len;66,3210
+    uint16_t flags;68,3268
+    uint16_t next;70,3340
+struct vring_avail 73,3363
+    uint16_t flags;74,3384
+    uint16_t idx;75,3404
+    uint16_t ring[ring76,3422
+struct vring_used_elem 80,3499
+    uint32_t id;82,3575
+    uint32_t len;84,3667
+struct vring_used 87,3689
+    uint16_t flags;88,3709
+    uint16_t idx;89,3729
+    struct vring_used_elem ring[ring90,3747
+struct vring 93,3786
+    unsigned int num;94,3801
+    struct vring_desc *desc;desc96,3824
+    struct vring_avail *avail;avail98,3854
+    struct vring_used *used;used100,3886
+#define vring_used_event(129,4709
+#define vring_avail_event(130,4769
+static inline void vring_init(132,4844
+static inline unsigned vring_size(142,5265
+static inline int vring_need_event(153,5749
+
+dev/storage/ide_atareg.h,7544
+#define _DEV_ATA_ATAREG_H_34,1797
+#define ATA_BYTE_ORDER 48,1981
+#define ATA_BYTE_ORDER 50,2044
+#define ATA_BYTE_ORDER 52,2108
+#define LITTLE_ENDIAN 53,2133
+#define ATA_BYTE_ORDER 55,2184
+#define LITTLE_ENDIAN 56,2209
+struct ataparams 67,2440
+    uint16_t	atap_config;69,2480
+#define WDC_CFG_ATAPI_MASK	70,2538
+#define WDC_CFG_ATAPI	71,2573
+#define ATA_CFG_REMOVABLE	72,2604
+#define ATA_CFG_FIXED	73,2638
+#define ATAPI_CFG_TYPE_MASK	74,2669
+#define ATAPI_CFG_TYPE(75,2705
+#define ATAPI_CFG_TYPE_DIRECT	76,2767
+#define ATAPI_CFG_TYPE_SEQUENTIAL	77,2803
+#define ATAPI_CFG_TYPE_CDROM	78,2842
+#define ATAPI_CFG_TYPE_OPTICAL	79,2877
+#define ATAPI_CFG_TYPE_NODEVICE	80,2914
+#define ATAPI_CFG_REMOV	81,2952
+#define ATAPI_CFG_DRQ_MASK	82,2985
+#define ATAPI_CFG_STD_DRQ	83,3020
+#define ATAPI_CFG_IRQ_DRQ	84,3054
+#define ATAPI_CFG_ACCEL_DRQ	85,3088
+#define ATAPI_CFG_CMD_MASK	86,3124
+#define ATAPI_CFG_CMD_12	87,3159
+#define ATAPI_CFG_CMD_16	88,3192
+    uint16_t	atap_cylinders;90,3254
+    uint16_t	__reserved1;91,3322
+    uint16_t	atap_heads;92,3348
+    uint16_t	__retired1[__retired193,3394
+    uint16_t	atap_sectors;94,3459
+    uint16_t	__retired2[__retired295,3509
+    uint8_t	atap_serial[atap_serial97,3538
+    uint16_t	__retired3[__retired398,3594
+    uint16_t	__obsolete1;99,3622
+    uint8_t	atap_revision[atap_revision100,3648
+    uint8_t	atap_model[atap_model101,3709
+    uint16_t	atap_multi;102,3764
+    uint16_t	__reserved2;103,3830
+    uint8_t	atap_vendor;104,3856
+    uint8_t	atap_capabilities1;105,3907
+#define WDC_CAP_IORDY	106,3966
+#define WDC_CAP_IORDY_DSBL 107,3995
+#define WDC_CAP_LBA	108,4029
+#define WDC_CAP_DMA	109,4056
+#define ATA_CAP_STBY	110,4083
+#define ATAPI_CAP_INTERL_DMA	111,4111
+#define ATAPI_CAP_CMD_QUEUE	112,4147
+#define ATAPI_CAP_OVERLP	113,4182
+#define ATAPI_CAP_ATA_RST	114,4214
+    uint16_t	atap_capabilities2;115,4247
+    uint8_t	__junk2;117,4349
+    uint8_t	atap_oldpiotiming;118,4370
+    uint8_t	__junk3;119,4431
+    uint8_t	atap_olddmatiming;120,4452
+    uint8_t	atap_oldpiotiming;122,4525
+    uint8_t	__junk2;123,4586
+    uint8_t	atap_olddmatiming;124,4607
+    uint8_t	__junk3;125,4674
+    uint16_t	atap_extensions;127,4702
+#define WDC_EXT_UDMA_MODES	128,4763
+#define WDC_EXT_MODES	129,4797
+#define WDC_EXT_GEOM	130,4827
+    uint16_t	atap_curcylinders;132,4887
+    uint16_t	atap_curheads;133,4955
+    uint16_t	atap_cursectors;134,5016
+    uint16_t	atap_curcapacity[atap_curcapacity135,5087
+    uint8_t	atap_curmulti;136,5151
+    uint8_t	atap_curmulti_valid;137,5218
+#define WDC_MULTI_VALID 138,5290
+#define WDC_MULTI_MASK 139,5321
+    uint32_t	atap_capacity;140,5352
+    uint16_t	__retired4;141,5419
+    uint8_t	atap_dmamode_supp;143,5480
+    uint8_t	atap_dmamode_act;144,5550
+    uint8_t	atap_piomode_supp;145,5616
+    uint8_t	__junk4;146,5676
+    uint8_t	atap_dmamode_act;148,5703
+    uint8_t	atap_dmamode_supp;149,5769
+    uint8_t	__junk4;150,5839
+    uint8_t	atap_piomode_supp;151,5860
+    uint16_t	atap_dmatiming_mimi;153,5927
+    uint16_t	atap_dmatiming_recom;154,5994
+    uint16_t	atap_piotiming;155,6066
+    uint16_t	atap_piotiming_iordy;156,6137
+    uint16_t	__reserved3[__reserved3157,6216
+    uint16_t	atap_pkt_br;159,6278
+    uint16_t	atap_pkt_bsyclr;160,6340
+    uint16_t	__reserved4[__reserved4161,6411
+    uint16_t	atap_queuedepth;162,6440
+#define WDC_QUEUE_DEPTH_MASK 163,6480
+    uint16_t	atap_sata_caps;164,6514
+#define SATA_SIGNAL_GEN1	165,6572
+#define SATA_SIGNAL_GEN2	166,6637
+#define SATA_NATIVE_CMDQ	167,6702
+#define SATA_HOST_PWR_MGMT	168,6763
+    uint16_t	atap_sata_reserved;169,6827
+    uint16_t	atap_sata_features_supp;170,6879
+#define SATA_NONZERO_OFFSETS	171,6950
+#define SATA_DMA_SETUP_AUTO	172,7016
+#define SATA_DRIVE_PWR_MGMT	173,7081
+    uint16_t	atap_sata_features_en;174,7148
+    uint16_t	atap_ata_major;175,7216
+#define WDC_VER_ATA1	176,7277
+#define WDC_VER_ATA2	177,7305
+#define WDC_VER_ATA3	178,7333
+#define WDC_VER_ATA4	179,7361
+#define WDC_VER_ATA5	180,7389
+#define WDC_VER_ATA6	181,7417
+#define WDC_VER_ATA7	182,7445
+#define WDC_VER_ATA8	183,7473
+#define WDC_VER_ATA9	184,7501
+#define WDC_VER_ATA10	185,7529
+#define WDC_VER_ATA11	186,7558
+#define WDC_VER_ATA12	187,7587
+#define WDC_VER_ATA13	188,7616
+#define WDC_VER_ATA14	189,7645
+    uint16_t	atap_ata_minor;190,7674
+    uint16_t	atap_cmd_set1;191,7735
+#define WDC_CMD1_NOP	192,7796
+#define WDC_CMD1_RB	193,7824
+#define WDC_CMD1_WB	194,7851
+#define WDC_CMD1_HPA	195,7878
+#define WDC_CMD1_DVRST	196,7906
+#define WDC_CMD1_SRV	197,7936
+#define WDC_CMD1_RLSE	198,7964
+#define WDC_CMD1_AHEAD	199,7993
+#define WDC_CMD1_CACHE	200,8023
+#define WDC_CMD1_PKT	201,8053
+#define WDC_CMD1_PM	202,8081
+#define WDC_CMD1_REMOV	203,8108
+#define WDC_CMD1_SEC	204,8138
+#define WDC_CMD1_SMART	205,8166
+    uint16_t	atap_cmd_set2;206,8196
+#define ATAPI_CMD2_FCE	207,8257
+#define ATAPI_CMD2_FC	208,8319
+#define ATAPI_CMD2_DCO	209,8376
+#define ATAPI_CMD2_48AD	210,8451
+#define ATAPI_CMD2_AAM	211,8512
+#define ATAPI_CMD2_SM	212,8588
+#define ATAPI_CMD2_SF	213,8660
+#define ATAPI_CMD2_PUIS	214,8728
+#define WDC_CMD2_RMSN	215,8795
+#define ATA_CMD2_APM	216,8824
+#define ATA_CMD2_CFA	217,8852
+#define ATA_CMD2_RWQ	218,8880
+#define WDC_CMD2_DM	219,8908
+    uint16_t	atap_cmd_ext;220,8970
+#define ATAPI_CMDE_MSER	221,9036
+#define ATAPI_CMDE_TEST	222,9103
+#define ATAPI_CMDE_SLOG	223,9166
+    uint16_t	atap_cmd1_en;224,9233
+    uint16_t	atap_cmd2_en;226,9333
+    uint16_t	atap_cmd_def;228,9433
+    uint8_t	atap_udmamode_supp;231,9572
+    uint8_t	atap_udmamode_act;232,9639
+    uint8_t	atap_udmamode_act;234,9708
+    uint8_t	atap_udmamode_supp;235,9771
+    uint16_t	atap_seu_time;238,9870
+    uint16_t	atap_eseu_time;239,9937
+    uint16_t	atap_apm_val;240,10002
+    uint16_t	atap_mpasswd_rev;241,10058
+    uint16_t	atap_hwreset_res;242,10124
+#define ATA_HWRES_CBLID 243,10186
+#define ATA_HWRES_D1_PDIAG 244,10243
+#define ATA_HWRES_D1_CSEL 245,10309
+#define ATA_HWRES_D1_JUMP 246,10381
+#define ATA_HWRES_D0_SEL 247,10451
+#define ATA_HWRES_D0_DASP 248,10530
+#define ATA_HWRES_D0_PDIAG 249,10595
+#define ATA_HWRES_D0_DIAG 250,10661
+#define ATA_HWRES_D0_CSEL 251,10719
+#define ATA_HWRES_D0_JUMP 252,10791
+    uint8_t	atap_acoustic_val;254,10897
+    uint8_t	atap_acoustic_def;255,10961
+    uint8_t	atap_acoustic_def;257,11026
+    uint8_t	atap_acoustic_val;258,11085
+    uint16_t	__reserved6[__reserved6260,11156
+    uint16_t	atap_max_lba[atap_max_lba261,11208
+    uint16_t	__reserved7[__reserved7262,11271
+    uint16_t	atap_rmsn_supp;263,11325
+#define WDC_RMSN_SUPP_MASK 264,11393
+#define WDC_RMSN_SUPP 265,11427
+    uint16_t	atap_sec_st;266,11456
+#define WDC_SEC_LEV_MAX	267,11510
+#define WDC_SEC_ESE_SUPP 268,11541
+#define WDC_SEC_EXP	269,11573
+#define WDC_SEC_FROZEN	270,11600
+#define WDC_SEC_LOCKED	271,11630
+#define WDC_SEC_EN	272,11660
+#define WDC_SEC_SUPP	273,11686
+    uint16_t	__reserved8[__reserved8274,11714
+    uint16_t	atap_cfa_power;275,11775
+#define ATAPI_CFA_MAX_MASK 276,11830
+#define ATAPI_CFA_MODE1_DIS 277,11865
+#define ATAPI_CFA_MODE1_REQ 278,11926
+#define ATAPI_CFA_WORD160 279,11987
+    uint16_t	__reserved9[__reserved9280,12047
+    uint8_t	atap_media_serial[atap_media_serial281,12109
+    uint16_t	__reserved10[__reserved10282,12179
+    uint8_t	atap_signature;284,12270
+    uint8_t	atap_checksum;285,12320
+    uint8_t	atap_checksum;287,12374
+    uint8_t	atap_signature;288,12422
+#undef ATA_BYTE_ORDER292,12483
+
+dev/storage/ide_wdcreg.h,3742
+#define _DEV_IC_WDCREG_H_39,1879
+#define WDCTL_4BIT	44,1947
+#define WDCTL_RST	45,2005
+#define WDCTL_IDS	46,2055
+#define WDCS_BSY	51,2138
+#define WDCS_DRDY	52,2171
+#define WDCS_DWF	53,2212
+#define WDCS_DSC	54,2258
+#define WDCS_DRQ	55,2306
+#define WDCS_CORR	56,2347
+#define WDCS_IDX	57,2391
+#define WDCS_ERR	58,2425
+#define WDCS_BITS	59,2459
+#define WDCE_BBK	64,2565
+#define WDCE_CRC	65,2612
+#define WDCE_UNC	66,2667
+#define WDCE_MC	67,2720
+#define WDCE_IDNF	68,2762
+#define WDCE_MCR	69,2804
+#define WDCE_ABRT	70,2855
+#define WDCE_TK0NF	71,2900
+#define WDCE_AMNF	72,2948
+#define WDCC_NOP	77,3041
+#define WDCC_RECAL	78,3110
+#define WDCC_READ	80,3175
+#define WDCC_WRITE	81,3219
+#define WDCC__LONG	82,3265
+#define WDCC__NORETRY	83,3324
+#define WDCC_FORMAT	85,3380
+#define WDCC_DIAGNOSE	86,3428
+#define WDCC_IDP	87,3483
+#define WDCC_READMULTI	89,3540
+#define WDCC_WRITEMULTI	90,3588
+#define WDCC_SETMULTI	91,3638
+#define WDCC_READDMA	93,3690
+#define WDCC_WRITEDMA	94,3736
+#define WDCC_ACKMC	96,3785
+#define WDCC_LOCK	97,3840
+#define WDCC_UNLOCK	98,3881
+#define WDCC_FLUSHCACHE	100,3927
+#define WDCC_IDENTIFY	101,3974
+#define SET_FEATURES	102,4039
+#define WDCC_IDLE	104,4085
+#define WDCC_IDLE_IMMED	105,4147
+#define WDCC_SLEEP	106,4198
+#define WDCC_STANDBY	107,4245
+#define WDCC_STANDBY_IMMED 108,4316
+#define WDCC_CHECK_PWR	109,4373
+#define WDCC_READ_EXT	111,4425
+#define WDCC_WRITE_EXT	112,4482
+#define WDCC_READMULTI_EXT	114,4542
+#define WDCC_WRITEMULTI_EXT	115,4612
+#define WDCC_READDMA_EXT	117,4685
+#define WDCC_WRITEDMA_EXT	118,4753
+#define WDCC_FLUSHCACHE_EXT	120,4824
+#define WDSF_8BIT_PIO_EN	123,4950
+#define WDSF_EN_WR_CACHE	124,5019
+#define WDSF_SET_MODE	125,5049
+#define WDSF_REASSIGN_EN	126,5077
+#define WDSF_APM_EN	127,5131
+#define WDSF_PUIS_EN	128,5192
+#define WDSF_PUIS_SPINUP	129,5252
+#define WDSF_CFA_MODE1_EN	130,5316
+#define WDSF_RMSN_DS	131,5377
+#define WDSF_RETRY_DS	132,5441
+#define WDSF_AAM_EN	133,5493
+#define WDSF_SET_CACHE_SGMT	134,5559
+#define WDSF_READAHEAD_DS	135,5616
+#define WDSF_RLSE_EN	136,5677
+#define WDSF_SRV_EN	137,5735
+#define WDSF_POD_DS	138,5792
+#define WDSF_ECC_DS	139,5818
+#define WDSF_8BIT_PIO_DS	140,5844
+#define WDSF_WRITE_CACHE_DS	141,5914
+#define WDSF_REASSIGN_DS	142,5947
+#define WDSF_APM_DS	143,5977
+#define WDSF_PUIS_DS	144,6039
+#define WDSF_ECC_EN	145,6100
+#define WDSF_CFA_MODE1_DS	146,6126
+#define WDSF_RMSN_EN	147,6188
+#define WDSF_RETRY_EN	148,6251
+#define WDSF_SET_CURRENT	149,6303
+#define WDSF_READAHEAD_EN	150,6357
+#define WDSF_PREFETCH_SET	151,6388
+#define WDSF_AAM_DS	152,6443
+#define WDSF_POD_EN	153,6510
+#define WDSF_RLSE_DS	154,6536
+#define WDSF_SRV_DS	155,6595
+#define WDSF_READ_NATIVE_MAX 156,6653
+#define WDSF_SEEK 157,6690
+#define WDSF_VERIFY 158,6727
+#define WDSD_IBM	161,6816
+#define WDSD_CHS	162,6875
+#define WDSD_LBA	163,6935
+#define ATAPI_CHECK_POWER_MODE	166,7022
+#define ATAPI_EXEC_DRIVE_DIAGS	167,7058
+#define ATAPI_IDLE_IMMEDIATE	168,7094
+#define ATAPI_NOP	169,7128
+#define ATAPI_PKT_CMD	170,7152
+#define ATAPI_IDENTIFY_DEVICE	171,7180
+#define ATAPI_SOFT_RESET	172,7215
+#define ATAPI_DEVICE_RESET	173,7245
+#define ATAPI_SLEEP	174,7315
+#define ATAPI_STANDBY_IMMEDIATE	175,7341
+#define ATAPI_SMART	176,7378
+#define ATAPI_SETMAX	177,7427
+#define ATAPI_WRITEEXT	178,7476
+#define ATAPI_SETMAXEXT	179,7529
+#define ATAPI_WRITEMULTIEXT	180,7585
+#define ATAPI_PKT_CMD_FTRE_DMA	183,7702
+#define ATAPI_PKT_CMD_FTRE_OVL	184,7738
+#define WDCI_CMD	187,7789
+#define WDCI_IN	188,7839
+#define WDCI_RELEASE	189,7902
+#define PHASE_CMDOUT	191,7965
+#define PHASE_DATAIN	192,8008
+#define PHASE_DATAOUT	193,8050
+#define PHASE_COMPLETED	194,8081
+#define PHASE_ABORTED	195,8126

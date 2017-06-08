@@ -1,0 +1,13 @@
+Files to change
+: configs/common/cache.py &&  cacheconfig.py && options.py 
+
+src/mem/cache/cache.hh && cache.cc && cache.py
+
+
+
+you may need to look at src/pyhton/m5/params.py to determin type of youre parameter
+
+
+you can find more information here : http://learning.gem5.org/book/part2/memoryobject.html && http://learning.gem5.org/book/part2/parameters.html && http://learning.gem5.org/book/part2/simplecache.html
+
+

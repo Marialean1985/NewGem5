@@ -1,0 +1,11 @@
+K:\gem5\BetaGem\src\arch\x86\X86TLB.py add parameters to this by parent 
+		for exmaple    ratio = Param.Float(Parent.ratio,"Ratio of virtual block size to physical block size")
+    rangeFileName = Param.String(Parent.rangeFileName,"Name of the file in which ranges are written")  
+add parameters to K:\gem5\BetaGem\src\sim\System.py  nrmally with default value
+			#-----------------Marzieh
+    ratio = Param.Float(1,"Ratio of virtual block size to physical block size")
+    rangeFileName = Param.String(None,"Name of the file in which ranges are written")  
+#----------------------Marzieh
+
+adda options to options.py
+in se.py, add this parameters to system object

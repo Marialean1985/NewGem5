@@ -1,0 +1,41 @@
+scons: Reading SConscript files ...
+Checking for C header file Python.h... (cached) yes
+Checking for C library pthread... (cached) yes
+Checking for C library dl... (cached) yes
+Checking for C library util... (cached) yes
+Checking for C library m... (cached) yes
+Checking for C library python2.7... (cached) yes
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for GOOGLE_PROTOBUF_VERIFY_VERSION in C++ library protobuf... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) no
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library rt... (cached) yes
+Checking for C library tcmalloc... (cached) yes
+Checking for backtrace_symbols_fd((void*)0, 0, 0) in C library None... (cached) yes
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file linux/kvm.h... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Building in /net/if22/ml2au/gem5/BetaGem/build/X86
+Using saved variables file /net/if22/ml2au/gem5/BetaGem/build/variables/X86
+scons: done reading SConscript files.
+scons: Building targets ...
+ [NEW DEPS] X86/arch/x86/generated/inc.d -> x86-deps
+ [ENVIRONS] x86-deps -> x86-environs
+ [VER TAGS]  -> X86/sim/tags.cc
+ [     CXX] X86/mem/cache/cache.cc -> .o
+scons: done building targets.
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Feb 22 2017 13:00:52
+gem5 started Feb 22 2017 13:22:36
+gem5 executing on falcon1, pid 8716
+command line: build/X86/gem5.opt --debug-flags=Cache configs/example/se.py --ratio=8.5 -c tests/test-progs/hello/bin/x86/linux/hello
+
+Global frequency set at 1000000000000 ticks per second
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+Hello world!
+Exiting @ tick 5942000 because target called exit()
