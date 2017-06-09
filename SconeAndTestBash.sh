@@ -29,8 +29,8 @@ echo $fftoptiont
 #--mem-type=SimpleMemory
 #--mem-type=LPDDR3_1600_x32
 #--l3cache --l3_size=2MB
-build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcRatio8  configs/example/se.py --ConversionLocation=L2  --num-cpus=16 --rangeFileName=${RangeFilePath1}  --warmup-insts=50984 --cpu-type=detailed  --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB  --ratio=8  --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont1}" & 
+build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcRatio8  configs/example/se.py --ConversionLocation=L2  --ConversionDelay=10 --num-cpus=16 --rangeFileName=${RangeFilePath1}  --warmup-insts=50984 --cpu-type=detailed  --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB  --ratio=8  --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont1}" & 
 #echo testing with fft with 8.5
-build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcRatio1  configs/example/se.py --ConversionLocation=L2  --num-cpus=16 --rangeFileName=${RangeFilePath2}   --warmup-insts=50984 --cpu-type=detailed --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB --ratio=1 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont2}" & 
+build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcRatio1  configs/example/se.py --ConversionLocation=L2 --ConversionDelay=10 --num-cpus=16 --rangeFileName=${RangeFilePath2}   --warmup-insts=50984 --cpu-type=detailed --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB --ratio=1 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont2}" & 
 #--debug-flags=Cache
 
