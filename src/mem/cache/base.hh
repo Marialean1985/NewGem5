@@ -99,7 +99,25 @@ class BaseCache : public MemObject
     };
 
   protected:
+        float ratio;
+        float origVarSize1;
+        float reducedVarSize1;
+        float origVarSize2;
+        float reducedVarSize2;
+        float origVarSize3;
+        float reducedVarSize3;
+        float origVarSize4;
+        float reducedVarSize4;
+        float origVarSize5;
+        float reducedVarSize5;
+        float origVarSize6;
+        float reducedVarSize6;
+        float origVarSize7;
+        float reducedVarSize7;
+        float origVarSize8;
+        float reducedVarSize8;
 
+//	std::string rangeFileName;
     /**
      * A cache master port is used for the memory-side port of the
      * cache, and in addition to the basic timing port that only sends
@@ -319,6 +337,7 @@ class BaseCache : public MemObject
     /** The number of misses to trigger an exit event. */
     Counter missCount;
 
+
     /**
      * The address range to which the cache responds on the CPU side.
      * Normally this is all possible memory addresses. */
@@ -341,7 +360,11 @@ class BaseCache : public MemObject
     Stats::Formula demandHits;
     /** Number of hit for all accesses. */
     Stats::Formula overallHits;
-
+    Stats::Scalar RatiodMisses;
+    Stats::Formula conversionMisses;
+    Stats::Scalar ConversionWrtBackCount;
+    Stats::Formula ConversionWrtBack;
+    Stats::Formula NumberOfConversion;
     /** Number of misses per thread for each type of command.
         @sa Packet::Command */
     Stats::Vector misses[MemCmd::NUM_MEM_CMDS];

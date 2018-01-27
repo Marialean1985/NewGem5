@@ -75,7 +75,7 @@
             "use_default_range": false
         }, 
         "work_begin_exit_count": 0, 
-        "ratio": 8.0, 
+        "ratio": 1.0, 
         "p_state_clk_gate_min": 1000, 
         "memories": [
             "system.mem_ctrls"
@@ -145,7 +145,7 @@
             "use_default_range": false
         }, 
         "eventq_index": 0, 
-        "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+        "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
         "default_p_state": "UNDEFINED", 
         "p_state_clk_gate_max": 1000000000000, 
         "dvfs_handler": {
@@ -275,7 +275,7 @@
         "path": "system", 
         "reducedVarSize4": 32.0, 
         "work_end_ckpt_count": 0, 
-        "ConversionDelay": 10, 
+        "ConversionDelay": 1, 
         "mem_mode": "timing", 
         "name": "system", 
         "init_param": 0, 
@@ -305,9 +305,9 @@
                     "reducedVarSize8": 32.0, 
                     "cxx_class": "X86ISA::TLB", 
                     "size": 64, 
-                    "ratio": 8.0, 
+                    "ratio": 1.0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "CpuIDinTLB": 0, 
                     "type": "X86TLB", 
                     "path": "system.cpu.itb", 
@@ -376,8 +376,8 @@
                         "name": "workload", 
                         "cmd": [
                             "MarziehTests/fftRange", 
-                            "2048", 
-                            "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt_0"
+                            "262144", 
+                            "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt_0"
                         ], 
                         "errout": "cerr", 
                         "useArchPT": false, 
@@ -403,7 +403,7 @@
                     "response_latency": 12, 
                     "cxx_class": "Cache", 
                     "size": 262144, 
-                    "ratio": 8.0, 
+                    "ratio": 1.0, 
                     "cpu_side": {
                         "peer": "system.cpu.tol2bus.master[0]", 
                         "role": "SLAVE"
@@ -413,7 +413,7 @@
                     "cacheLevel": "L2", 
                     "max_miss_count": 0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "default_p_state": "UNDEFINED", 
                     "p_state_clk_gate_max": 1000000000000, 
                     "mem_side": {
@@ -454,7 +454,7 @@
                     "path": "system.cpu.l2", 
                     "data_latency": 12, 
                     "tag_latency": 12, 
-                    "ConversionDelay": 10, 
+                    "ConversionDelay": 1, 
                     "name": "l2", 
                     "origVarSize8": 32.0, 
                     "origVarSize7": 32.0, 
@@ -1051,7 +1051,7 @@
                     "response_latency": 4, 
                     "cxx_class": "Cache", 
                     "size": 32768, 
-                    "ratio": 8.0, 
+                    "ratio": 1.0, 
                     "cpu_side": {
                         "peer": "system.cpu.icache_port", 
                         "role": "SLAVE"
@@ -1061,7 +1061,7 @@
                     "cacheLevel": "L1_I", 
                     "max_miss_count": 0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "default_p_state": "UNDEFINED", 
                     "p_state_clk_gate_max": 1000000000000, 
                     "mem_side": {
@@ -1102,7 +1102,7 @@
                     "path": "system.cpu.icache", 
                     "data_latency": 4, 
                     "tag_latency": 4, 
-                    "ConversionDelay": 10, 
+                    "ConversionDelay": 1, 
                     "name": "icache", 
                     "origVarSize8": 32.0, 
                     "origVarSize7": 32.0, 
@@ -1182,7 +1182,7 @@
                     "response_latency": 2, 
                     "cxx_class": "Cache", 
                     "size": 1024, 
-                    "ratio": 8.0, 
+                    "ratio": 1.0, 
                     "cpu_side": {
                         "peer": "system.cpu.dtb.walker.port", 
                         "role": "SLAVE"
@@ -1192,7 +1192,7 @@
                     "cacheLevel": "L0", 
                     "max_miss_count": 0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "default_p_state": "UNDEFINED", 
                     "p_state_clk_gate_max": 1000000000000, 
                     "mem_side": {
@@ -1233,7 +1233,7 @@
                     "path": "system.cpu.dtb_walker_cache", 
                     "data_latency": 2, 
                     "tag_latency": 2, 
-                    "ConversionDelay": 10, 
+                    "ConversionDelay": 1, 
                     "name": "dtb_walker_cache", 
                     "origVarSize8": 32.0, 
                     "origVarSize7": 32.0, 
@@ -1257,38 +1257,13 @@
                     "ConversionLocation": "L2", 
                     "clusivity": "mostly_incl", 
                     "reducedVarSize8": 32.0, 
-                    "prefetcher": {
-                        "queue_squash": true, 
-                        "on_miss": false, 
-                        "tag_prefetch": true, 
-                        "cache_snoop": false, 
-                        "cxx_class": "TaggedPrefetcher", 
-                        "latency": 1, 
-                        "degree": 1, 
-                        "clk_domain": "system.cpu_clk_domain", 
-                        "eventq_index": 0, 
-                        "default_p_state": "UNDEFINED", 
-                        "p_state_clk_gate_max": 1000000000000, 
-                        "on_read": true, 
-                        "queue_filter": true, 
-                        "type": "TaggedPrefetcher", 
-                        "p_state_clk_gate_min": 1000, 
-                        "on_data": true, 
-                        "on_write": true, 
-                        "power_model": null, 
-                        "sys": "system", 
-                        "queue_size": 32, 
-                        "path": "system.cpu.dcache.prefetcher", 
-                        "name": "prefetcher", 
-                        "p_state_clk_gate_bins": 20, 
-                        "on_inst": true
-                    }, 
+                    "prefetcher": null, 
                     "system": "system", 
                     "write_buffers": 8, 
-                    "response_latency": 4, 
+                    "response_latency": 5, 
                     "cxx_class": "Cache", 
-                    "size": 32768, 
-                    "ratio": 8.0, 
+                    "size": 65536, 
+                    "ratio": 1.0, 
                     "cpu_side": {
                         "peer": "system.cpu.dcache_port", 
                         "role": "SLAVE"
@@ -1298,7 +1273,7 @@
                     "cacheLevel": "L1_D", 
                     "max_miss_count": 0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "default_p_state": "UNDEFINED", 
                     "p_state_clk_gate_max": 1000000000000, 
                     "mem_side": {
@@ -1310,8 +1285,8 @@
                     "writeback_clean": false, 
                     "p_state_clk_gate_min": 1000, 
                     "tags": {
-                        "size": 32768, 
-                        "tag_latency": 4, 
+                        "size": 65536, 
+                        "tag_latency": 5, 
                         "name": "tags", 
                         "p_state_clk_gate_min": 1000, 
                         "eventq_index": 0, 
@@ -1326,7 +1301,7 @@
                         "path": "system.cpu.dcache.tags", 
                         "block_size": 64, 
                         "type": "LRU", 
-                        "data_latency": 4
+                        "data_latency": 5
                     }, 
                     "tgts_per_mshr": 20, 
                     "demand_mshr_reserve": 1, 
@@ -1337,9 +1312,9 @@
                     "is_read_only": false, 
                     "prefetch_on_access": false, 
                     "path": "system.cpu.dcache", 
-                    "data_latency": 4, 
-                    "tag_latency": 4, 
-                    "ConversionDelay": 10, 
+                    "data_latency": 5, 
+                    "tag_latency": 5, 
+                    "ConversionDelay": 1, 
                     "name": "dcache", 
                     "origVarSize8": 32.0, 
                     "origVarSize7": 32.0, 
@@ -1374,7 +1349,7 @@
                     "response_latency": 2, 
                     "cxx_class": "Cache", 
                     "size": 1024, 
-                    "ratio": 8.0, 
+                    "ratio": 1.0, 
                     "cpu_side": {
                         "peer": "system.cpu.itb.walker.port", 
                         "role": "SLAVE"
@@ -1384,7 +1359,7 @@
                     "cacheLevel": "L0", 
                     "max_miss_count": 0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "default_p_state": "UNDEFINED", 
                     "p_state_clk_gate_max": 1000000000000, 
                     "mem_side": {
@@ -1425,7 +1400,7 @@
                     "path": "system.cpu.itb_walker_cache", 
                     "data_latency": 2, 
                     "tag_latency": 2, 
-                    "ConversionDelay": 10, 
+                    "ConversionDelay": 1, 
                     "name": "itb_walker_cache", 
                     "origVarSize8": 32.0, 
                     "origVarSize7": 32.0, 
@@ -1491,9 +1466,9 @@
                     "reducedVarSize8": 32.0, 
                     "cxx_class": "X86ISA::TLB", 
                     "size": 64, 
-                    "ratio": 8.0, 
+                    "ratio": 1.0, 
                     "eventq_index": 0, 
-                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+                    "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
                     "CpuIDinTLB": 0, 
                     "type": "X86TLB", 
                     "path": "system.cpu.dtb", 
@@ -1580,10 +1555,10 @@
             "prefetcher": null, 
             "system": "system", 
             "write_buffers": 256, 
-            "response_latency": 54, 
+            "response_latency": 36, 
             "cxx_class": "Cache", 
             "size": 8388608, 
-            "ratio": 8.0, 
+            "ratio": 1.0, 
             "cpu_side": {
                 "peer": "system.tol3bus.master[0]", 
                 "role": "SLAVE"
@@ -1593,7 +1568,7 @@
             "cacheLevel": "L3", 
             "max_miss_count": 0, 
             "eventq_index": 0, 
-            "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/1.txt", 
+            "rangeFileName": "/zf14/ml2au/gem5/UndertestBetaGemv1/MarziehTests/fftRangefiles/2.txt", 
             "default_p_state": "UNDEFINED", 
             "p_state_clk_gate_max": 1000000000000, 
             "mem_side": {
@@ -1606,7 +1581,7 @@
             "p_state_clk_gate_min": 1000, 
             "tags": {
                 "size": 8388608, 
-                "tag_latency": 54, 
+                "tag_latency": 36, 
                 "name": "tags", 
                 "p_state_clk_gate_min": 1000, 
                 "eventq_index": 0, 
@@ -1621,7 +1596,7 @@
                 "path": "system.l3.tags", 
                 "block_size": 64, 
                 "type": "LRU", 
-                "data_latency": 54
+                "data_latency": 36
             }, 
             "tgts_per_mshr": 20, 
             "demand_mshr_reserve": 1, 
@@ -1632,9 +1607,9 @@
             "is_read_only": false, 
             "prefetch_on_access": false, 
             "path": "system.l3", 
-            "data_latency": 54, 
-            "tag_latency": 54, 
-            "ConversionDelay": 10, 
+            "data_latency": 36, 
+            "tag_latency": 36, 
+            "ConversionDelay": 1, 
             "name": "l3", 
             "origVarSize8": 32.0, 
             "origVarSize7": 32.0, 

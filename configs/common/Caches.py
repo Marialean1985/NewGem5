@@ -48,7 +48,7 @@ from m5.objects import *
 # starting point, and specific parameters can be overridden in the
 # specific instantiations.
 class L1Prefetcher(TaggedPrefetcher):
-    degree = 3
+    degree = 1
 class L2Prefetcher(StridePrefetcher):
     degree = 3
 class L1Cache(Cache):
@@ -69,6 +69,9 @@ class L1_ICache(L1Cache):
 class L1_DCache(L1Cache):
     cacheLevel="L1_D"
     #prefetcher = L1Prefetcher()
+    tag_latency = 4
+    data_latency = 4
+    response_latency = 4
     pass
 
 class L2Cache(Cache):
@@ -84,9 +87,9 @@ class L2Cache(Cache):
 #Marzieh
 class L3Cache(Cache):
         assoc = 16
-        tag_latency = 66#50#12
-        data_latency = 66#50#12
-        response_latency = 66#50
+        tag_latency = 36#50#12#66
+        data_latency = 36#50#12#66
+        response_latency = 36#50#66
         mshrs = 512
         tgts_per_mshr = 20
         write_buffers = 256

@@ -102,6 +102,7 @@ Fault
 readMemAtomic(XC *xc, Trace::InstRecord *traceData, Addr addr, uint64_t &mem,
               unsigned dataSize, Request::Flags flags)
 {
+//	std::cout<<"memHelper::readMemAtomic 105"<<std::endl;
     memset(&mem, 0, sizeof(mem));
     Fault fault = xc->readMem(addr, (uint8_t *)&mem, dataSize, flags);
     if (fault == NoFault) {
@@ -121,6 +122,7 @@ readMemAtomic(XC *xc, Trace::InstRecord *traceData, Addr addr,
               std::array<uint64_t, N> &mem, unsigned dataSize,
               unsigned flags)
 {
+//std::cout<<"memHelper::readMemAtomic 125"<<std::endl;
     assert(dataSize >= 8);
     assert((dataSize % 8) == 0);
 

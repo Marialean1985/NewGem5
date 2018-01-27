@@ -76,12 +76,13 @@ class Cache : public BaseCache
 	std::string cacheLevel;
 	std::string ConversionLocation;
 	Cycles ConversionDelay;
-	std::string rangeFileName;
-	Addr beginAdrresse[10];
+
+        Addr beginAdrresse[10];
 	Addr endAdrresse[10];
 	int NumberOfRanges=0;
 	int waitForFileToPrepared=0;
-    float ratio;
+//	int CpuIDinTLB;
+
     /** A typedef for a list of CacheBlk pointers. */
     typedef std::list<CacheBlk*> BlkList;
 

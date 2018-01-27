@@ -105,7 +105,6 @@ class CacheBlk
 
     /** Which curTick() will this block be accessable */
     Tick whenReady;
-
     /**
      * The set and way this block belongs to.
      * @todo Move this into subclasses when we fix CacheTags to use them.
@@ -114,6 +113,11 @@ class CacheBlk
 
     /** whether this block has been touched */
     bool isTouched;
+//-----------Marzieh
+    bool ratiod;
+    //bool dirtytoCheckRatiod;
+//----------------------------
+
 
     /** Number of references to this block since it was brought in. */
     unsigned refCount;

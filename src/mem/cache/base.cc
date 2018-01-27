@@ -95,6 +95,27 @@ BaseCache::BaseCache(const BaseCacheParams *p, unsigned blk_size)
 
     // forward snoops is overridden in init() once we can query
     // whether the connected master is actually snooping or not
+    origVarSize1=p->origVarSize1;
+    reducedVarSize1=p->reducedVarSize1;
+    origVarSize2=p->origVarSize2;
+    reducedVarSize2=p->reducedVarSize2;
+    origVarSize3=p->origVarSize3;
+    reducedVarSize3=p->reducedVarSize3;
+    origVarSize4=p->origVarSize4;
+    reducedVarSize4=p->reducedVarSize4;
+    origVarSize5=p->origVarSize5;
+    reducedVarSize5=p->reducedVarSize5;
+    origVarSize6=p->origVarSize6;
+    reducedVarSize6=p->reducedVarSize6;
+    origVarSize7=p->origVarSize7;
+    reducedVarSize7=p->reducedVarSize7;
+    origVarSize8=p->origVarSize8;
+    reducedVarSize8=p->reducedVarSize8;
+    if (ratio==1)
+     {
+        ratio= p->origVarSize1/p->reducedVarSize1;
+     }
+
 }
 
 void
@@ -253,7 +274,38 @@ BaseCache::regStats()
     for (int i = 0; i < system->maxMasters(); i++) {
         demandMisses.subname(i, system->getMasterName(i));
     }
+    conversionMisses
+        .name(name() + ".conversionMisses")
+        .desc("number of ratiod misses")
+    //    .flags(total | nozero | nonan)
+        ;
+    conversionMisses  = RatiodMisses;
+    // std::cout<<"RatiodMisses" <<RatiodMisses<< std::endl;
+    for (int i = 0; i < system->maxMasters(); i++) {
+        conversionMisses.subname(i, system->getMasterName(i));
+    }
+    ConversionWrtBack
+        .name(name() + ".ConversionWrtBack")
+        .desc("number of ratiod writeBacks")
+    //    .flags(total | nozero | nonan)
+        ;
+    ConversionWrtBack  = ConversionWrtBackCount;
+    // std::cout<<"RatiodMisses" <<RatiodMisses<< std::endl;
+    for (int i = 0; i < system->maxMasters(); i++) {
+        ConversionWrtBack.subname(i, system->getMasterName(i));
+    }
 
+
+
+    NumberOfConversion
+        .name(name() + ".NumberOfConversion")
+        .desc("Total Number Of Conversions per missed block")
+    //    .flags(total | nozero | nonan)
+        ;
+    NumberOfConversion = (((64*8)/reducedVarSize1)*RatiodMisses)+((64/4)* ConversionWrtBackCount);
+    for (int i = 0; i < system->maxMasters(); i++) {
+        NumberOfConversion.subname(i, system->getMasterName(i));
+    }
     overallMisses
         .name(name() + ".overall_misses")
         .desc("number of overall misses")

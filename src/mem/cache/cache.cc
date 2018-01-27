@@ -87,9 +87,11 @@ Cache::Cache(const CacheParams *p)
     tags->setCache(this);
     if (prefetcher)
         prefetcher->setCache(this);
-    	ratio= p->ratio;
-	cacheLevel=p->cacheLevel;
-	rangeFileName=p->rangeFileName.c_str();
+    //CpuIDinTLB=p->CpuIDinTLB;
+    std::string postfix="_";
+    //rangeFileName=p->rangeFileName.c_str()+postfix+std::to_string(p->CpuIDinTLB);
+
+        cacheLevel=p->cacheLevel;
         ConversionLocation=p->ConversionLocation;
         ConversionDelay=p->ConversionDelay;
         if(!cacheLevel.compare(ConversionLocation)){
@@ -344,11 +346,18 @@ Cache::access(PacketPtr pkt, CacheBlk *&blk, Cycles &lat,
     // Here lat is the value passed as parameter to accessBlock() function
     // that can modify its value.
     blk = tags->accessBlock(pkt->getAddr(), pkt->isSecure(), lat, id);
-	if(!cacheLevel.compare(ConversionLocation) && pkt->isRatiod==true)
+        if ( (blk != nullptr)  && !cacheLevel.compare(ConversionLocation) )
+        {
+                        blk->ratiod  = pkt->isRatiod;
+
+        }
+        if (!cacheLevel.compare(ConversionLocation) && pkt->isRatiod)
 	{
 		//std::cout<<"**************************delaye is being applied "<<std::endl;
 		(lat)=(lat)+ConversionDelay;
-	}
+                RatiodMisses++;
+                //std::cout<<"**************************RatiodMisses is  "<<RatiodMisses<<std::endl;
+        }
 /*	
 	if(!cacheLevel.compare("L2")||!cacheLevel.compare("L3")||!cacheLevel.compare("L1_D")  )
 	{
@@ -485,12 +494,19 @@ Cache::access(PacketPtr pkt, CacheBlk *&blk, Cycles &lat,
         if (blk == nullptr) {
             // need to do a replacement
             blk = allocateBlock(pkt->getAddr(), pkt->isSecure(), writebacks);
+        //Marzieh
+           if (  (blk != nullptr ) &&  blk->isDirty()  && blk->ratiod  )
+
+             {
+                ConversionWrtBackCount++;
+             }
             if (blk == nullptr) {
                 // no replaceable block available: give up, fwd to next level.
                 incMissCount(pkt);
                 return false;
             }
             tags->insertBlock(pkt, blk);
+           blk->ratiod=pkt->isRatiod;
 
             blk->status = (BlkValid | BlkReadable);
             if (pkt->isSecure()) {

@@ -405,9 +405,10 @@ TLB::translate(RequestPtr req, ThreadContext *tc, Translation *translation,
 		if(vaddr> beginAdrresse[rngC] && vaddr< endAdrresse[rngC])
 		//if(vaddr>= beginAdrresse[rngC] )
 		{
-			Addr newOffset=uint64_t((vaddr-beginAdrresse[rngC])/ratio);
-			Addr RatioedAdr=beginAdrresse[rngC]+newOffset;
-			if(ratio==1)
+                        Addr alignAdr=vaddr & Addr(16 - 1);
+                        Addr newOffset=uint64_t(((vaddr-beginAdrresse[rngC])/16)/ratio)*16;
+                        Addr RatioedAdr=beginAdrresse[rngC]+newOffset+alignAdr;
+                        if (ratio==1)
 			{
 				req->isRatiod=false;
 			}

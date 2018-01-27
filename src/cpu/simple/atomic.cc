@@ -340,7 +340,9 @@ AtomicSimpleCPU::readMem(Addr addr, uint8_t * data, unsigned size,
 {
     SimpleExecContext& t_info = *threadInfo[curThread];
     SimpleThread* thread = t_info.thread;
-
+        //Marzieh----------------
+        //std::cout<<"********************Atomic is being run"<<std::endl;
+        //Marzieh
     // use the CPU's statically allocated read request and packet objects
     Request *req = &data_read_req;
 

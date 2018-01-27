@@ -92,7 +92,7 @@ def config_cache(options, system):
     if options.l3cache:
         system.l3 = l3_cache_class(clk_domain=system.cpu_clk_domain,
         size=options.l3_size,
-        assoc=options.l3_assoc,ratio=options.ratio, rangeFileName=options.rangeFileName)
+        assoc=options.l3_assoc,ratio=options.ratio, rangeFileName=options.rangeFileName, tag_latency=options.L3Latency, data_latency=options. L3Latency,response_latency=options.L3Latency)
 
         #system.tol2bus = L2XBar(clk_domain = system.cpu_clk_domain)
         system.tol3bus = L2XBar(clk_domain = system.cpu_clk_domain, width=64)
@@ -120,7 +120,10 @@ def config_cache(options, system):
         if options.caches:
             icache = icache_class(size=options.l1i_size,
                                   assoc=options.l1i_assoc)
-            dcache = dcache_class(size=options.l1d_size,
+            if options.L1Prefetcher:
+                   dcache = dcache_class(prefetcher = L1Prefetcher(),size=options.l1d_size, assoc=options.l1d_assoc,ratio=options.ratio,rangeFileName=options.rangeFileName)
+            else:
+                   dcache = dcache_class(size=options.l1d_size,
                                   assoc=options.l1d_assoc,ratio=options.ratio,rangeFileName=options.rangeFileName)
 
             # If we have a walker cache specified, instantiate two

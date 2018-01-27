@@ -149,8 +149,7 @@ CheckerCPU::readMem(Addr addr, uint8_t *data, unsigned size,
     bool checked_flags = false;
     bool flags_match = true;
     Addr pAddr = 0x0;
-
-
+        //std::cout<<"*****************CheckerCPU::readMe*"<<std::endl;
     if (secondAddr > addr)
        size = secondAddr - addr;
 

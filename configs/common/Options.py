@@ -110,6 +110,10 @@ def addNoISAOptions(parser):
     parser.add_option("--l1i_assoc", type="int", default=2)
     parser.add_option("--l2_assoc", type="int", default=8)
     parser.add_option("--l3_assoc", type="int", default=16)
+    parser.add_option("--L1Prefetcher", action="store_true")
+  #  parser.add_option("--L2Prefetcher", action="store_true")
+#--------------------------------
+    parser.add_option("--L3Latency", type="int", default=36)
 #--------------------------------
     parser.add_option("--ratio", type="float", default=1)
 #------------------------------------
