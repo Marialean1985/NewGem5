@@ -219,7 +219,10 @@ class ParamDesc(object):
         return self.ptype(value).pretty_print(value)
 
     def cxx_predecls(self, code):
-        code('#include <cstddef>')
+#Ramulator
+#-        code('#include <cstddef>')
+        code('#include <stddef.h>')
+        
         self.ptype.cxx_predecls(code)
 
     def swig_predecls(self, code):

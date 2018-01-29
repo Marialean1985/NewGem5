@@ -110,7 +110,14 @@ def create_mem_ctrl(cls, r, i, nbr_mem_ctrls, intlv_bits, intlv_size):
     # Create an instance so we can figure out the address
     # mapping and row-buffer size
     ctrl = cls()
+    #Ramulator
+    if issubclass(cls, m5.objects.Ramulator):
+        if not options.ramulator_config:
+            fatal("--mem-type=ramulator require --ramulator-config option")
+            ctrl.config_file = options.ramulator_config
+            ctrl.num_cpus = options.num_cpus
 
+    #Ramulator
     # Only do this for DRAMs
     if issubclass(cls, m5.objects.DRAMCtrl):
         # Inform each controller how many channels to account

@@ -80,7 +80,12 @@ if env['HAVE_DRAMSIM']:
     SimObject('DRAMSim2.py')
     Source('dramsim2_wrapper.cc')
     Source('dramsim2.cc')
-
+#Ramulator
+if env['HAVE_RAMULATOR']:
+    SimObject("Ramulator.py")
+    Source('ramulator.cc')
+    DebugFlag("Ramulator")
+#Ramulator
 SimObject('MemChecker.py')
 Source('mem_checker.cc')
 Source('mem_checker_monitor.cc')

@@ -88,7 +88,10 @@ def addNoISAOptions(parser):
                       default="512MB",
                       help="Specify the physical memory size (single memory)")
 
-
+#  Ramulator
+    parser.add_option("--ramulator-config", type="string", dest="ramulator_config",
+                      help="Specify Ramulator configuration file, overrides other --mem-XXX options")
+#  Ramultor
     parser.add_option("--memchecker", action="store_true")
 
     # Cache Options

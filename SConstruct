@@ -233,7 +233,10 @@ main = Environment(ENV=use_env, IMPLICIT_COMMAND_DEPENDENCIES=0)
 main.Decider('MD5-timestamp')
 main.root = Dir(".")         # The current directory (where this file lives).
 main.srcdir = Dir("src")     # The source directory
-
+# Ramulato
+main['CC'] = "gcc-5"
+main['CXX'] = "g++-5"
+#Ramulator
 main_dict_keys = main.Dictionary().keys()
 
 # Check that we have a C/C++ compiler
@@ -651,8 +654,15 @@ if main['GCC'] or main['CLANG']:
     main.Append(CCFLAGS=['-fno-strict-aliasing'])
     # Enable -Wall and -Wextra and then disable the few warnings that
     # we consistently violate
-    main.Append(CCFLAGS=['-Wall', '-Wundef', '-Wextra',
-                         '-Wno-sign-compare', '-Wno-unused-parameter'])
+    #-Ramulator
+    #main.Append(CCFLAGS=['-Wall', '-Wundef', '-Wextra',
+    #                     '-Wno-sign-compare', '-Wno-unused-parameter'])
+    #-Ramulator
+    # RAMULATOR: compatibiltiy for clang 3.5+, gcc 5
+    if main['GCC']:
+    	main.Append(CCFLAGS=['-Wall', '-Wno-sign-compare', '-Wundef', '-Wno-unused-variable', '-Wno-parentheses', '-Wno-deprecated'])
+    else:
+        main.Append(CCFLAGS=['-Wall', '-Wno-sign-compare', '-Wundef', '-Wno-unused-private-field', '-Wno-deprecated-register', '-Wno-undefined-bool-conversion', '-Wno-unused-function'])
     # We always compile using C++11
     main.Append(CXXFLAGS=['-std=c++11'])
 else:
@@ -1312,6 +1322,10 @@ main.SConscript('ext/fputils/SConscript',
 # DRAMSim2 build is shared across all configs in the build root.
 main.SConscript('ext/dramsim2/SConscript',
                 variant_dir = joinpath(build_root, 'dramsim2'))
+#Ramulator build is shared across all configs in the build root.
+main.SConscript('ext/ramulator/SConscript',
+                variant_dir = joinpath(build_root, 'ramulator'))
+#Ramulator
 
 # DRAMPower build is shared across all configs in the build root.
 main.SConscript('ext/drampower/SConscript',
