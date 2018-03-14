@@ -118,7 +118,10 @@ def addNoISAOptions(parser):
     parser.add_option("--ratio", type="float", default=1)
 #------------------------------------
     parser.add_option("--ConversionDelay", type="int", default=1)
+    parser.add_option("--ConversionDelayWriteBack", type="int", default=1)
+    parser.add_option("--outlierDelay", type="int", default=0)
     parser.add_option("--ConversionLocation", type="string", default="L2")
+    parser.add_option("--OutlierRate", type="float", default=0)
 #----------------------------------------
     parser.add_option("--origVarSize1", type="float", default=32)
     parser.add_option("--reducedVarSize1", type="float", default=32)

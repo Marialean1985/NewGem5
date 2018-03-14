@@ -52,7 +52,11 @@ class BaseCache(MemObject):
 
     size = Param.MemorySize("Capacity")
     ratio = Param.Float(Parent.ratio,"Ratio of virtual block size to physical block size")
+    #Marzieh
     ConversionDelay = Param.Cycles(Parent.ConversionDelay, "Conversion delay")
+    ConversionDelayWriteBack = Param.Cycles(Parent.ConversionDelayWriteBack, "Conversion delay")
+    outlierDelay = Param.Cycles(Parent.outlierDelay, "outlierDelay")
+    OutlierRate=Param.Float(Parent.OutlierRate, "OutlierRate")
     ConversionLocation = Param.String(Parent.ConversionLocation,"Level of cache in which conversion happens")
     rangeFileName= Param.String(Parent.rangeFileName,"Name of the file in which ranges are written")
 #    CpuIDinTLB=Param.Int(Parent.cpu_id, "Cpu Id in TLB")

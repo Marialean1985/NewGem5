@@ -30,7 +30,12 @@ echo $fftoptiont
 #--mem-type=LPDDR3_1600_x32
 #--l3cache --l3_size=2MB
 #--mem-channels=2
-build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcRatio8  configs/example/se.py --L1Prefetcher --ConversionLocation=L2  --ConversionDelay=10 --num-cpus=1 --rangeFileName=${RangeFilePath1}  --warmup-insts=50984 --cpu-type=detailed  --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB  --ratio=8 --L3Latency=54 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont1}" & 
+build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcWriteBack20000  configs/example/se.py --L1Prefetcher --ConversionLocation=L2 --outlierDelay=0 --OutlierRate=0.5 --ConversionDelay=10 --ConversionDelayWriteBack=20000 --num-cpus=1 --rangeFileName=${RangeFilePath1}  --warmup-insts=50984 --cpu-type=detailed  --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB  --ratio=8 --L3Latency=54 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont1}"  
+echo "end of write back 200"
+build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcWriteBack1  configs/example/se.py --L1Prefetcher --ConversionLocation=L2 --outlierDelay=0 --OutlierRate=1 --ConversionDelay=10 --ConversionDelayWriteBack=1 --num-cpus=1 --rangeFileName=${RangeFilePath1}  --warmup-insts=50984 --cpu-type=detailed  --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB  --ratio=8 --L3Latency=54 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont1}" 
+echo "end of write back 1"
+build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcWriteBack20  configs/example/se.py --L1Prefetcher --ConversionLocation=L2 --outlierDelay=0 --OutlierRate=0 --ConversionDelay=10 --ConversionDelayWriteBack=20 --num-cpus=1 --rangeFileName=${RangeFilePath1}  --warmup-insts=50984 --cpu-type=detailed  --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB  --ratio=8 --L3Latency=54 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont1}" 
+echo "end of write bavk 20"
 #echo testing with fft with 8.5
 :<<'END'
 build/X86/gem5.opt  -d ${cwd}/MarziehTests/fftStatistcRatio1  configs/example/se.py --L1Prefetcher --ConversionLocation=L2 --ConversionDelay=10 --num-cpus=1 --rangeFileName=${RangeFilePath2}   --warmup-insts=50984 --cpu-type=detailed --mem-type=DDR3_1600_x64 --caches  --l2cache   --l1d_size=32kB --l2_size=256kB  --l3cache --l3_size=8MB --ratio=1 --mem-size=8GB -c MarziehTests/fftRange --options="${fftoptiont2}" & 

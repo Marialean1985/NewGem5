@@ -60,6 +60,8 @@
 #include "mem/cache/tags/base.hh"
 #include "params/Cache.hh"
 #include "sim/eventq.hh"
+#include <random>
+//#define MinOutlierDenominator 10000000000 not used yet
 
 //Forward decleration
 class BasePrefetcher;
@@ -76,11 +78,21 @@ class Cache : public BaseCache
 	std::string cacheLevel;
 	std::string ConversionLocation;
 	Cycles ConversionDelay;
+        Cycles ConversionDelayWriteBack;
+        Cycles outlierDelay;
+        double OutlierRate;
 
         Addr beginAdrresse[10];
 	Addr endAdrresse[10];
 	int NumberOfRanges=0;
 	int waitForFileToPrepared=0;
+        double outlierCounter=0;
+        //int seed=1024;
+        //double min=0;
+        //double max=1;
+        std::default_random_engine ActivationGenerator ;
+        std::uniform_real_distribution<double> distribution1;
+ 
 //	int CpuIDinTLB;
 
     /** A typedef for a list of CacheBlk pointers. */

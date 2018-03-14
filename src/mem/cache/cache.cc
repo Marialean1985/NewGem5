@@ -63,7 +63,7 @@
 #include "mem/cache/mshr.hh"
 #include "mem/cache/prefetch/base.hh"
 #include "sim/sim_exit.hh"
-
+#include <random>
 Cache::Cache(const CacheParams *p)
     : BaseCache(p, p->system->cacheLineSize()),
       tags(p->tags),
@@ -76,6 +76,10 @@ Cache::Cache(const CacheParams *p)
       writebackTempBlockAtomicEvent(this, false,
                                     EventBase::Delayed_Writeback_Pri)
 {
+    //std::default_random_engine(1024);
+    //std::normal_distribution<double> ( 0 ,1);
+    std::default_random_engine ActivationGenerator(1024) ;
+    std::uniform_real_distribution<double> distribution1(double(0),double(1));
     tempBlock = new CacheBlk();
     tempBlock->data = new uint8_t[blkSize];
 
@@ -94,6 +98,10 @@ Cache::Cache(const CacheParams *p)
         cacheLevel=p->cacheLevel;
         ConversionLocation=p->ConversionLocation;
         ConversionDelay=p->ConversionDelay;
+        outlierDelay=p->outlierDelay;
+        ConversionDelayWriteBack=p->ConversionDelayWriteBack;
+        
+        OutlierRate=p->OutlierRate;
         if(!cacheLevel.compare(ConversionLocation)){
              std::cout << "----------------------Conversion in location " <<ConversionLocation<<" Cache level is "<<cacheLevel<<"Conversion delay is "<<ConversionDelay<<std::endl;
         }
@@ -351,10 +359,26 @@ Cache::access(PacketPtr pkt, CacheBlk *&blk, Cycles &lat,
                         blk->ratiod  = pkt->isRatiod;
 
         }
+ 
         if (!cacheLevel.compare(ConversionLocation) && pkt->isRatiod)
 	{
 		//std::cout<<"**************************delaye is being applied "<<std::endl;
+                
 		(lat)=(lat)+ConversionDelay;
+                outlierCounter++;
+                double rndtmp=distribution1(ActivationGenerator);
+                if(rndtmp<OutlierRate){
+                    (lat)=(lat)+outlierDelay;
+                    std::cout <<"ooooooooooooooooooooooooooooooooooooooooooooooooooooooooutlierrrrrrrrrrrrrrrrrrrrr" <<rndtmp<<"\n";
+                }
+                /*
+                if(OutlierRate!=0 && outlierCounter!=0)
+                {
+                    if(OutlierRate> (1/outlierCounter)){
+                        outlierCounter=0;
+                        (lat)=(lat)+outlierDelay;
+                    }
+                }*/
                 RatiodMisses++;
                 //std::cout<<"**************************RatiodMisses is  "<<RatiodMisses<<std::endl;
         }
@@ -490,24 +514,28 @@ Cache::access(PacketPtr pkt, CacheBlk *&blk, Cycles &lat,
                     "dropping\n", pkt->getAddr());
             return true;
         }
+        //Marzieh
+        if (  pkt->isRatiod )
 
+        {
+                ConversionWrtBackCount++;
+                (lat)=(lat)+ConversionDelayWriteBack;
+        }
+        //\Marzieh
         if (blk == nullptr) {
             // need to do a replacement
             blk = allocateBlock(pkt->getAddr(), pkt->isSecure(), writebacks);
-        //Marzieh
-           if (  (blk != nullptr ) &&  blk->isDirty()  && blk->ratiod  )
+        
 
-             {
-                ConversionWrtBackCount++;
-             }
             if (blk == nullptr) {
                 // no replaceable block available: give up, fwd to next level.
                 incMissCount(pkt);
                 return false;
             }
             tags->insertBlock(pkt, blk);
-           blk->ratiod=pkt->isRatiod;
-
+            //Marzieh
+            blk->ratiod=pkt->isRatiod;
+            //\Marzieh
             blk->status = (BlkValid | BlkReadable);
             if (pkt->isSecure()) {
                 blk->status |= BlkSecure;

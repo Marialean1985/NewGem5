@@ -70,6 +70,9 @@ class System(MemObject):
     reducedVarSize8=Param.Float(32,"reduced variable size to physical block size")   
  
     ConversionDelay = Param.Cycles(1, "Conversion delay")
+    ConversionDelayWriteBack = Param.Cycles(1, "Conversion delay in write back")
+    OutlierRate=Param.Float(0, "OutlierRate")
+    outlierDelay=Param.Cycles(0, "outlierDelay")
     ConversionLocation = Param.String("L2","Level of cache in which conversion happens")
 #----------------------Marzieh
 

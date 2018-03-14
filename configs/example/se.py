@@ -179,7 +179,9 @@ np = options.num_cpus
 system = System(cpu = [CPUClass(cpu_id=i) for i in xrange(np)],
                 mem_mode = test_mem_mode,
                 mem_ranges = [AddrRange(options.mem_size)],
-                cache_line_size = options.cacheline_size,rangeFileName=options.rangeFileName,ratio=options.ratio,ConversionLocation=options.ConversionLocation,ConversionDelay=options.ConversionDelay,
+                cache_line_size = options.cacheline_size,rangeFileName=options.rangeFileName,ratio=options.ratio,ConversionLocation=options.ConversionLocation,
+                ConversionDelay=options.ConversionDelay, ConversionDelayWriteBack=options.ConversionDelayWriteBack,outlierDelay=options.outlierDelay,OutlierRate=options.OutlierRate,
+                
                 origVarSize1=options.origVarSize1,reducedVarSize1=options.reducedVarSize1,
                 origVarSize2=options.origVarSize2,reducedVarSize2=options.reducedVarSize2,
                 origVarSize3=options.origVarSize3,reducedVarSize3=options.reducedVarSize3,

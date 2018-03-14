@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html -->
+<html class="gr__cs_virginia_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CS 6534 Homework 2</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+  <link rel="stylesheet" href="./CS 6534 Homework 2_files/style.css">
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body data-gr-c-s-loaded="true">
+<h1 class="top">CS 6354: Graduate Computer Architecture</h1>
+<div class="menu">
+    <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/about.html">main page</a> 
+    <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/policies.html">policies</a>
+    <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/schedule.html">schedule</a>
+    <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework1.html">homework 1</a>
+    <span class="visited">homework 2</span>
+    <a href="https://docs.google.com/document/d/1Ug4RTt0PnMTcYjAJ24qEeWWHaLanJ9NdY6cAQSSBA-w/edit?usp=sharing">homework 3</a>
+    <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/topics.html">exam topics</a>
+</div>
+<header>
+<h1 class="title">CS 6534 Homework 2</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#cs-6534-homework-2"><span class="toc-section-number">1</span> CS 6534 Homework 2</a><ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#infrastructure"><span class="toc-section-number">1.1</span> Infrastructure</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#vm-issues"><span class="toc-section-number">1.2</span> VM issues</a></li>
+</ul></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#deliverables"><span class="toc-section-number">2</span> Deliverables</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#gem5-explanationtutorial"><span class="toc-section-number">3</span> gem5 Explanation/Tutorial</a><ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#an-example-simulation"><span class="toc-section-number">3.1</span> An Example Simulation</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#supplying-command-line-arguments"><span class="toc-section-number">3.2</span> Supplying Command-Line Arguments</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#varying-simulation-parameters"><span class="toc-section-number">3.3</span> Varying Simulation Parameters</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#stages-of-the-simulated-processor"><span class="toc-section-number">3.4</span> Stages of the Simulated Processor</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#some-terminology-in-the-program-statistics"><span class="toc-section-number">3.5</span> Some Terminology in the Program Statistics</a></li>
+</ul></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#supplied-benchmark-programs"><span class="toc-section-number">4</span> Supplied Benchmark Programs</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#tasks"><span class="toc-section-number">5</span> Tasks</a><ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-a-general-attributes-of-benchmark-programs-required-for-checkpoint"><span class="toc-section-number">5.1</span> Part A: General attributes of benchmark programs (required for checkpoint)</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-b-use-the-pipeline-viewer-required-for-checkpoint"><span class="toc-section-number">5.2</span> Part B: Use the pipeline viewer (required for checkpoint)</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-c-effective-cache-miss-penalty-versus-miss-latency-required-for-checkpoint"><span class="toc-section-number">5.3</span> Part C: Effective cache miss penalty versus miss latency (required for checkpoint)</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-d-branch-prediction-benefits"><span class="toc-section-number">5.4</span> Part D: Branch Prediction Benefits</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-e-achievable-bandwidth"><span class="toc-section-number">5.5</span> Part E: Achievable bandwidth</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-f-miscellaneous-resource"><span class="toc-section-number">5.6</span> Part F: Miscellaneous Resource</a></li>
+</ul></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#note-on-errors"><span class="toc-section-number">6</span> Note on errors</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#building-benchmarks-and-gem5"><span class="toc-section-number">7</span> Building benchmarks and gem5</a><ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#rebuilding-the-benchmarks"><span class="toc-section-number">7.1</span> Rebuilding the benchmarks</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#rebuilding-gem5"><span class="toc-section-number">7.2</span> Rebuilding gem5</a></li>
+</ul></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#linux-quick-start"><span class="toc-section-number">8</span> Linux quick start</a></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#changelog"><span class="toc-section-number">9</span> Changelog</a></li>
+</ul>
+</nav>
+<h1 id="cs-6534-homework-2"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#cs-6534-homework-2"><span class="header-section-number">1</span> CS 6534 Homework 2</a></h1>
+<p>(Last update 22 October: <small><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#changelog">changelog</a></small>)</p>
+<p>Checkpoint due: <strong>Saturday October 15</strong>, 11:59PM</p>
+<p>Full submission due: <strong>Tuesday October 25</strong>, 11:59PM</p>
+<p>In this homework, you will use the <a href="http://gem5.org/">gem5</a> simulator to explore how the performance and behavior of an out-of-order processor changes as various implementation factors are adjusted.</p>
+<h2 id="infrastructure"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#infrastructure"><span class="header-section-number">1.1</span> Infrastructure</a></h2>
+<ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/gem5-linux64-prebuilt.tar.gz">prebuilt gem5</a>
+<ul>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/gem5.patch">patch to original gem5 source</a> (if you’re building it yourself)</li>
+</ul></li>
+<li><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/hw2-benchmarks.tar.gz">prebuilt benchmarks</a>
+<ul>
+<li>sample inputs to the benchmarks are included in the archive (as of 6 October; apologies for the error) and <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/hw2-inputs">available seperately</a></li>
+</ul></li>
+<li>VirtualBox compatible 64-bit <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/vbox-image-v2.ova">Ubuntu 16.04 image</a> with no software preinstalled. You should be able to use almost any 64-bit x86 Linux installation; this is just provided as an example. (If you want a more minimal, faster GUI-less VM, a vagrant box (mentioned below) will do it.) <small>(This VM image was updated with some performance improvements on 1 October 2016, see <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#perf-improve">below</a>.)</small></li>
+</ul>
+<p>We recommend a 64-bit Linux machine or virtual machine to do this assignment. <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/vbox-image.ova">This</a> is such a virtual machine image suitable for importing into <a href="https://www.virtualbox.org/">VirtualBox</a>. (It does not have any software installed on it beyond the Ubuntu defaults.) That VM image has a user created called <code>vmuser</code> whose password is <code>password</code>. If you use the supplied VM and have the RAM, I would suggest increasing the amount of memory allocated to it. Alternately, you might consider using <a href="https://www.vagrantup.com/docs/getting-started/">vagrant</a> and its ubuntu64/xenial `box’ (virtual machine template).</p>
+<p>If you’d like to try to install this natively on a non-64-bit Linux virtual machine, we provide installation instructions <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#building-benchmarks-and-gem5">below</a> which should work on many Unix-like systems. If you’d like to run it without a virtual machine on Windows, this should also be possible. In the event of technical difficulties, however, our recommendation is going to be to use a Linux virtual machine.</p>
+<p>After obtaining a sutiable environment, download a prebuilt copy of <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/gem5-linux64-prebuilt.tar.gz">gem5</a> (which we have patched with <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/gem5.patch">this patch</a>) and of our <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/hw2-benchmarks.tar.gz">benchmarks</a>. For this assignment, you should have some familiarity with the Linux command line. If you do not, see the brief guide <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#linux-quick-start">below</a>.</p>
+<h2 id="vm-issues"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#vm-issues"><span class="header-section-number">1.2</span> VM issues</a></h2>
+<p>To run a 64-bit virtual machine in Virtualbox, you may need to enable VT-x, which is Intel’s name for extra hardware support for virtual machines. This is sometimes also called names like <q>Intel Virtualization Technology</q>. For reasons I do not understand, often laptops or desktops ship with this feature disabled by default. If it is disabled, you can typically reenable it in BIOS or `the Setup Utility’. For example, on my laptop (a Thinkpad T460), I did this by pressing Enter while the machine was booting, selecting to go into the <q>Setup tool</q> from the resulting prompt. Then, from the resulting menu, selecting <q>Config</q>, then <q>Security</q>, then <q>Virtualization</q>. Then, I had an option to enable or disable <q>Intel Virtualization Technology</q>. Instructions for how to do this will vary between machines, so I cannot give a universal guide here. But other common ways of entering Setup include pressing F12 or Del while booting, and you can probably find instructions online given the model of your laptop or desktop. If you have trouble figuring out how to do this on your system, please ask the course staff for assistance.</p>
+<p>Fighting against Linux or virtual machine software is not an objective of this homework. If you have trouble with such issues, please don’t hesitate to ask us.</p>
+<!--
+If your system really does not support 64-bit virtual machines in Virtualbox,
+which should only be true of very old
+systems, then we supply a [32-bit Linux virtual machine](./vbox-image-32.ova) and a [32-bit build of
+gem5](./gem5-linux32-prebuilt.tar.gz) and a [32-bit build of our benchmarks](./benchmarks-hw2-linux32.tar.gz).
+I do not expect you to 
+need or want these; if you do, please tell me. Note that I have not tested the 32-bit versions of
+these programs.
+-->
+
+
+<h1 id="deliverables"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#deliverables"><span class="header-section-number">2</span> Deliverables</a></h1>
+<p>Submit a zip or tar archive containing:</p>
+<ul>
+<li>an HTML, PDF, or text document containing answers to questions in and explanations required by the <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#tasks">Tasks</a> listed below;</li>
+<li><em>supporting simulation results</em> (raw data files)</li>
+</ul>
+<p>For the checkpoint, you need only supply the tasks labelled <q>(required for checkpoint)</q> below. For the final submission, you must do all tasks.</p>
+<h1 id="gem5-explanationtutorial"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#gem5-explanationtutorial"><span class="header-section-number">3</span> gem5 Explanation/Tutorial</a></h1>
+<h2 id="an-example-simulation"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#an-example-simulation"><span class="header-section-number">3.1</span> An Example Simulation</a></h2>
+<p>After installing gem5, download our benchmarks directory. This includes several benchmarks and their source code, as well as a script to run a gem5 simulation called `gem5script.py’. The gem5 executable expects to be passed a Python script like this, which is responsible for configuring the simulation environment. The script we have supplied is suitable for you to modify this assignment.</p>
+<p>To start out, first build the benchmark programs using the supplied Makefile by running the <code>make</code> command from the command-line. Try running the blocked-matmul prorgam out of the simulation using</p>
+<pre><code>./blocked-matmul</code></pre>
+<p>This program performs a 84x84 register-blocked matrix multiply and times it four times. You can read its source code in blocked-matmul.c. Now let us run this program under the processor simulator using the supplied script.</p>
+<p>First, modify the <code>gem5script.py</code> to point to where you downloaded GEM5, at the top of script is a line like</p>
+<pre><code>GEM_DIR = '../gem5'</code></pre>
+<p>Either place your downloaded copy of gem5 in the same directory that contains the <code>benchmarks</code> directory or modify this to set <code>GEM_DIR</code> to the location of your copy of gem5 (that you downloaded or built). Then find the location of the gem5.opt binary for your copy of gem5, which is in build/X86/gem5.opt. I suggest creating a symbolic link to this binary using a command like:</p>
+<pre><code>ln -s PATH/TO/GEM5_DIR/build/X86/gem5.opt ./</code></pre>
+<p>This command creates an for <code>PATH/TO/GEM5_DIR/build/X86/gem5.opt</code> in the current directory. Further instructions in this homework assume this alias exists by running gem5 with <code>./gem5.opt</code>.</p>
+<p>Note that you will need to refer to the <em>gem5 source code</em> repeatedly throughout this assignment to find out about what options are supported. The source code is included with our prebuilt version of gem5 for this reason.</p>
+<p>Then run gem5script.py with gem5.opt, pointing it to the blocked-matmul program:</p>
+<pre><code>./gem5.opt gem5script.py \
+    --cmd=./blocked-matmul \
+    --directory=blocked-matmul-output</code></pre>
+<p>Some notes on this simulation:</p>
+<ul>
+<li><p>It runs <em>much</em> slower than the original blocked-matmul program; around ten thousand times slower. This is the primary reason that our benchmark programs are `toy’ programs in this assignment. For <q>real</q> architecture research, you would use larger benchmarks, but this would involve waiting much longer for simulation results.</p></li>
+<li><p>The program run is an ordinary user-space program, but the simulated processor does not have an OS. This is gem5’s <q>system call emulation</q> (SE) mode. This acts like a simulated processor except that there is no virtual memory, and the system call instructions magically do what the operating system would do rather than triggering an exception and calling the operating system. gem5 also supports a <q>full system</q> (FS) mode, which can boot some real operating systems, which we will not be using in this assignment.</p></li>
+<li><p>The simulator will output some spurious warning messages like:</p>
+<pre><code> info: Entering event queue @ 0.  Starting simulation...
+ warn: ignoring syscall access(140737352001731, ...)
+ warn: ignoring syscall access(140737352012752, ...)
+ warn: ignoring syscall access(140737352001731, ...)
+ warn: ignoring syscall mprotect(140737349496832, ...)
+ warn: x86 cpuid family 0x0000: unimplemented function 7
+ warn: ignoring syscall mprotect(140737351593984, ...)
+ warn: ignoring syscall mprotect(6295552, ...)
+ warn: ignoring syscall mprotect(140737354121216, ...)</code></pre></li>
+</ul>
+<p>These are harmless.</p>
+<ul>
+<li><p>The simulator outputs a message like:</p>
+<p>Done simulation @ tick = 939334500: target called exit()</p>
+<p>Which indicates indicated which simulation tick the program completed on. By default, each simulation tick represents 1 picosecond of simulation time, and the simulated CPU has a clock rate of 2 GHz, so this simulation represents around 93 billion ticks / (500 ticks / clock cycle) = 1.9M clock cycles of simulated time.</p></li>
+</ul>
+<p>The more important outputs from the simulation are in the blocked-matmul-output directory specified via the –directory option. This will contain the following files:</p>
+<ul>
+<li><code>config.ini</code>, <code>config.json</code>: contain the full configuration of the components of the simulation.</li>
+<li><code>program.err</code>, <code>program.out</code>: contain the output of the program. From program.out, you can read the amount of simulated time that blocked-matmul took.</li>
+<li><code>stats.txt</code>: contain numerous statistics from the simulation. Interesting statistics include:
+<ul>
+<li><code>sim_seconds</code>: simulation time</li>
+<li><code>system.cpu.ipc</code>: instructions per cycle achieved by the simulated CPU</li>
+<li><code>system.cpu.commit.loads</code>, <code>system.cpu.commit.branches</code>, etc.: number of loads, branches, etc. finished</li>
+<li><code>system.cpu.iew.exec_branches</code>: number of branches executed (regardless of whether taken), including ones only executed because of a misprediction of a prior branch</li>
+<li><code>system.cpu.iew.branchMispredicts</code>: number of branch mispredictions</li>
+<li><code>system.cpu.iq.fu_full::IntALU</code>: number of times a reservation buffer for integer ALU operations was not available but could have been used</li>
+<li><code>system.cpu.dache.overall_miss_rate::cpu.data</code>: data cache miss rate</li>
+</ul></li>
+</ul>
+<p><code>gem5script.py</code> takes some parameters that affect the simulation. For example, you can adjust the data cache size with the <code>--l1d_size</code> option. Try running:</p>
+<pre><code>./gem5.opt gem5script.py \
+    --cmd=./blocked-matmul \
+    --directory=blocked-matmul-output-hugecache \
+    --l1d_size=2MB</code></pre>
+<p>[The &nbsp;represents a line continuation. This indicates that this is meant to all be one command, even though there are newlines in the middle of it.]</p>
+<p>Notice that the value of system.cpu.dcache.overall_miss_rate::cpu.data in stats.txt from this simulation is much lower than the first simulation.</p>
+<p>Note that the simulator takes on the order of a minute to simulate 5 milliseconds of simulated runtime, a slowdown of around 10000 times. For this reason, we will generally be only running very short benchmark programs in this assignment.</p>
+<h2 id="supplying-command-line-arguments"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#supplying-command-line-arguments"><span class="header-section-number">3.2</span> Supplying Command-Line Arguments</a></h2>
+<p>To supply command-line arguments to a program you run under gem5, you can pass the <code>--options</code> option, for example:</p>
+<pre><code>./gem5.opt gem5script.py \
+    --cmd=./queens \
+    --directory=queens-default-output \
+    --options='-c 10'</code></pre>
+<p>runs the command <code>queens -c 10</code> in the simulator.</p>
+<p>This is handled by the code in the <code>create_process()</code> function gem5script.py.</p>
+<p>When supplying filenames, you should generally provide the <em>full path</em> to the program. The program will be run <em>inside the output directory</em> instead of in your current working directory. This is why we suggest using <code>realpath</code> above.</p>
+<h2 id="varying-simulation-parameters"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#varying-simulation-parameters"><span class="header-section-number">3.3</span> Varying Simulation Parameters</a></h2>
+<p>Rather than vary cache parmaters, you will be primarily be varying parameters of the simulated out-of-order CPU. Most of these parameters don’t have convenient command-line options. Instead, you will need to modify the create_cpu() function in gemscript.py to change the parameters as you choose. A comment before this function shows some examples of how to modify parameters, including some which are more complicated to set. <small>(In the original version of the benchmarks archive, it also has an error in the first paragraph, claiming the function varies the number of reorder buffers by default like is described below, but it does not as supplied.)</small> If you aren’t familar with Python note that that text between triple quotes (<code>"""</code>) in this file are effectively comments, including several paragraphs of text before <code>def create_cpu</code>.</p>
+<p>You should edit parameters by modifying <code>gem5script.py</code>’s <code>create_cpu</code> function, around where there is a comment reading <code>YOUR CUSTOMIZATION CODE HERE</code>. The code you add can look like:</p>
+<pre><code>the_cpu.numROBEntries = 100</code></pre>
+<p>to run with 100 ROB (reorder buffer) entries instead of the default. For a full list of parameters in the out-of-order CPU model, look at the gem5 source file <code>src/cpu/o3/O3CPU.py</code>.</p>
+<p>You can also edit the <code>get_options()</code> function to make the script support additional command-line options which you can access via the <q>options</q> parameter to the <code>create_cpu()</code> function. This can allow you to avoid changing the python file every time you want to run a different simulation.</p>
+<p>For example, if you add code like:</p>
+<pre><code>parser.add_option('--vary', type=str, default='none')</code></pre>
+<p>you could do something like</p>
+<pre><code>if the_cpu.vary == 'numROB100':
+    the_cpu.numROBEntries = 100
+elif the_cpu.vary == 'none':
+    pass # python for do nothing
+else:
+    eprint("ERROR: unrecgonized --vary option")
+    sys.exit(1)</code></pre>
+<p>to let you run</p>
+<pre><code>./gem5.opt gem5script.py \
+    --cmd=./blocked-matmul \
+    --directory=blocked-matmul-output-rob100 \
+    --vary=rob100</code></pre>
+<p>to try 100 ROB entries outputting to <code>blocked-matmul-output-rob100</code> and:</p>
+<pre><code>./gem5.opt gem5script.py \
+    --cmd=./blocked-matmul \
+    --directory=blocked-matmul-output-default</code></pre>
+<p>to try with the default configuration.</p>
+<h2 id="stages-of-the-simulated-processor"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#stages-of-the-simulated-processor"><span class="header-section-number">3.4</span> Stages of the Simulated Processor</a></h2>
+<p>The simulated processor executes instructions in several stages, which are important to understand to reason about the statistics reported:</p>
+<ul>
+<li><em>fetch</em>: instructions are fetched from the instruction cache. By default, the processor fetches up to eight instructions at a time. The number fetched is controlled by the <code>fetchWidth</code> parameter. This stage does branch prediction and branch target prediction to determine what to fetch.</li>
+<li><em>decode</em>: instructions from the fetch stage are preproecssed. This stage handles execution of unconditional branches (whose target address is not in a register, etc.). In a real processor, this would be where instruction register numbers, etc. would be identified (but the simulation does not work this way internally; it only simulates the timings). The maximum number of instructions processed per cycle is controlled by the <code>decodeWidth</code> parameter.</li>
+<li><em>rename</em>: entries in the re-order buffer and the instruction queue (approximately a shared reservation buffer) are allocated for each instruction. Register operands of the instruction are renamed, updating a renaming map (blocking if not enough free registers are available). The maximum number of instructions processed per cycle is controlled by the <code>renameWidth</code> parameter.</li>
+<li><em>dispatch/issue</em>: instructions whose renamed operands are available are dispatched to functional units. For loads, stores, they are dispatched to the Load/Store Queue (LSQ). The simulated processor has a single instruction queue from which all instructions issue. Ordinarily instructions are taken in-order from this queue The maximum number of instructions processed per cycle is controlled by the <code>dispatchWidth</code> parameter.</li>
+<li><em>execute</em>: the functional unit actually processes their instruction. Each functional unit may have a different latency (number of cycles until it produces a result). Conditional branch mispredictions are identified here. The maximum number of instructions processed per cycle is controlled by the configuration of the types of operations, latencies, and counts of the functional units available.</li>
+<li><em>writeback</em>: send the result of the instruction into the corresponding physical register (if any), marking the register as available and permitting the issue of dependent instructions. Update the reorder buffer entry for the instruction. The maximum number of instructions processed per cycle is controlled by the <code>wbWidth</code> parameter.</li>
+<li><em>commit</em>: process the reorder buffer, freeing up reorder buffer entries. A second renaming map is updated. The maximum number of microps processed per cycle is controlled by the <code>commitWidth</code> parameter.</li>
+</ul>
+<p>In the event of branch misprediction, trap, or other speculative execution event, <q><em>squashing</em></q> can occur at all stages of this pipeline. When a pending instruction is squashed, it is removed from the instruction queues, reorder buffers, requests to the instruction cache, etc.</p>
+<p>The fetch, decode, rename and commit stages process instructions in program order. Other stages process instructions out-of-order based on availability of operands and results.</p>
+<p>The simulated processor also lets one configure the latency between many of these stages — how many clock cycles it takes an instruction to pass from one phase to another in the best case.</p>
+<p>To deal with the complicated instructions that are very common in X86, like a single instruction that performs a load and an add, the simulated processor splits many instructions into multiple <q>microoperations</q>. Confusingly, it is often not clear whether statistics are referring to microops (and calling them instructoiuns) or real instructions. Generally, statistics about the issue, execute, and writeback phase will always concern microops (even if their descriptions use the word <q>instructions</q>), and statistics about the commit phase will make it clear which are referred to.</p>
+<h2 id="some-terminology-in-the-program-statistics"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#some-terminology-in-the-program-statistics"><span class="header-section-number">3.5</span> Some Terminology in the Program Statistics</a></h2>
+<ul>
+<li>IEW: issue and execute and writeback. The portion of the simulated processor that reads the queue from rename and managed the load/store queue and the functional units.</li>
+<li>IQ: instruction queue, where instructions are placed when they are ready to be executed on functional units or the caches.</li>
+<li>LSQ, LQ, SQ: Load/Store Queue, Load Queue, Store Queue: queues that hold pending memory operations. These are also responsible for tracking accessed memory addresses to ensure that out-of-order load/store instructions that refer to the same memory address produce the correct results.</li>
+<li>non-speculative instruction: An instruction that cannot be executed speculatively. These instructions must be executed when their reorder buffer entry is committed and no earlier. An example of such an instruction is the system call instruction.</li>
+<li>squashing: undoing the effect of instructions due to a branch misprediction, fault, or other kind of incorrect speculative execution. Note that this occurs at all stages of the pipeline, rather than waiting for instructions to reach the reorder buffer.</li>
+</ul>
+<h1 id="supplied-benchmark-programs"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#supplied-benchmark-programs"><span class="header-section-number">4</span> Supplied Benchmark Programs</a></h1>
+<p>I have selected several benchmark programs that should explore a range of demands on the simulated processor. For each program, I have a suggested way to run the program that should take not much more than a minute to simulate each time. If the program takes command-line arguments, you should pass the arguments when using them in simulations as <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#supplying-command-line-arguments">described above</a>.</p>
+<ul>
+<li><p>blocked-matmul: a 2x2 register-blocked matrix multiplication of two 84x84 matrices. The matrices are pseudorandomly generated and all sizes are hard-coded. Source code for this benchmark is in <code>blocked-matmul.c</code>.</p>
+<p>Our suggsted command-line for this program is</p>
+<pre><code>./blocked-matmul</code></pre>
+<p>It takes no command-line arguments.</p>
+<p>This program was selected because it should have a mix of cache accesses and floating point operations</p></li>
+<li><p>BFS: computes a breadth-first search problem. This is taken from the <a href="http://www.cs.cmu.edu/~pbbs/benchmarks/breadthFirstSearch.html">Problem Based Benchmark Suite</a>. Source code for this benchmark, along with utilities for generating graph data is in the <code>breadthFirstSearch</code> directory.</p>
+<p>We supply some example graphs in the inputs directory. Our suggested command-line for this program is</p>
+<pre><code>./BFS path/to/RL3k.graph</code></pre>
+<p>where path/to/rand-weighted-micro.graph is the full path to the rand-weighted-micro.graph supplied in the inputs directory of the benchmarks archive and via <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/hw2-inputs">this link</a>. You may get this with a command like:</p>
+<pre><code>realpath inputs/RL3k.graph</code></pre>
+<p>This program was selected because it should have poor data cache locality.</p></li>
+<li><p>sha: computes the SHA-1 cryptographic hash of its input. Source code for this benchmark is in the <code>sha-src</code> directory.</p>
+<p>Our suggested command-line for this program is</p>
+<pre><code>./sha path/to/example-sha-input.txt</code></pre>
+<p>where path/to/example-sha-input.txt is the full path to the example-sha-input.txt supplied in the inputs directory. You may get this with a command like:</p>
+<pre><code>realpath inputs/example-sha-input.txt</code></pre>
+<p>This program was selected because it should be integer-operation intensive and very friendly for branch prediction and cache.</p></li>
+<li><p>queens: solves the <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">N queens problem</a> for an N specified as an argument. This is taken from the LLVM (a compiler toolkit) test suite, but based on comments in the source file queens.c, it is much older. Source code is in the <code>queens.c</code> file.</p>
+<p>Our suggested command-line for this program is</p>
+<pre><code>./queens -c 10</code></pre>
+<p>The <code>-c</code> option indicates to count solutions instead of printing out any solutions.</p>
+<p>This program was selected because it should be very friendly to the cache, but very challenging for branch prediction.</p></li>
+</ul>
+<h1 id="tasks"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#tasks"><span class="header-section-number">5</span> Tasks</a></h1>
+<h2 id="part-a-general-attributes-of-benchmark-programs-required-for-checkpoint"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-a-general-attributes-of-benchmark-programs-required-for-checkpoint"><span class="header-section-number">5.1</span> Part A: General attributes of benchmark programs (required for checkpoint)</a></h2>
+<p>Test each program with the suggested command-line above and create a table reporting the following with the default settings for the simulated processor:</p>
+<ul>
+<li>Portion of microops run that are:
+<ul>
+<li>integer instructions other than multiplies/divides</li>
+<li>integer multiplies or divides</li>
+<li>floating-point instructions</li>
+<li>branch and function call instructions</li>
+<li>memory/cache accessing instructions</li>
+</ul></li>
+<li>Mean number of microops generated per program instruction</li>
+<li>Portion of branches correctly predicted</li>
+<li>Average instructions executed per cycle</li>
+<li>Average microops executed per cycle</li>
+<li>Instruction cache hit rate</li>
+<li>Data cache hit rate</li>
+</ul>
+<h2 id="part-b-use-the-pipeline-viewer-required-for-checkpoint"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-b-use-the-pipeline-viewer-required-for-checkpoint"><span class="header-section-number">5.2</span> Part B: Use the pipeline viewer (required for checkpoint)</a></h2>
+<p>gem5 includes a pipeline viewer, briefly described <a href="http://www.m5sim.org/Visualization">here</a>. Try viewing the pipeline during the execution of the blocked-matmul program. First run blocked-matmul with debugging options to record pipelines from simulation ticks 500000000 to 501000000:</p>
+<pre><code>./gem5.opt --debug-flags=O3PipeView --debug-start=500000000 --debug-file=.`/trace.out \
+    gemscript.py --directory=matmul-trace -c ./blocked-matmul -m 501000000</code></pre>
+<p>The -m option specifies to terminate the simulation after running 501000000 ticks. After running this command, you will have the usual output the matmul-trace directory, and file called trace.out in that directory. If you look at this file, you will see that it cotnains a list of instructions, along with the clock tick in which they completed each phase of their execution. If an instruction was speculatively executed and did not complete some phase of its execution, <q>0</q> is listed instead.</p>
+<p>You can pass this trace.out to gem5’s pipeline viewer to get an easier to read output:</p>
+<pre><code>PATH/TO/GEM5/util/o3-pipeview.py --cycle-time=500 --color ./trace.out -o pipeview.out</code></pre>
+<p>The –cycle-time option specifies the clock rate of the simulated CPU in simulation ticks. This command produces an output file call pipeview.out, which you can view with a command like:</p>
+<pre><code>less -r pipeview.out</code></pre>
+<p>Note that the output is very wide by default. You can adjust the width of the output by supplying a value for the -w option:</p>
+<pre><code>PATH/TO/GEM5/util/o3-pipeview.py -w 40 --cycle-time=500 --color ./trace.out -o pipeview.out</code></pre>
+<p>For each instruction, this indicates what the address of the instruction was, the kind of instruction it was (using gem5’s internal name) and how long each phase of its completion took.</p>
+<p>Some lines have instruction names prefixed with <q><code>-----</code></q>. These represent instructions which were executed speculatively and `squashed’ (its effects cancelled), for example because the branch was mispredicted.</p>
+<ul>
+<li>Include your pipeview.out in your submission.</li>
+</ul>
+<h2 id="part-c-effective-cache-miss-penalty-versus-miss-latency-required-for-checkpoint"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-c-effective-cache-miss-penalty-versus-miss-latency-required-for-checkpoint"><span class="header-section-number">5.3</span> Part C: Effective cache miss penalty versus miss latency (required for checkpoint)</a></h2>
+<p>For this section, use only the BFS program. Notice that it has a relatively high data cache miss rate. The default configuration of the processor not only overlaps cache misses with other comptuation but can have many outstanding cache misses.</p>
+<p>The simulated cache has a number of MSHR (Miss Status Handling Registers) that each can make up to one request at a time to the memory system. The number of MSHRs is controlled by the <code>mshrs</code> parameter of each cache object (like the <code>dcache</code> variable produced by the supplied code).</p>
+<ol type="1">
+<li><p>Adjusting the number of MSHRs in the data cache to 1 (from the default of <s>8</s> 4) for the BFS program. Compare the performance to a higher number of MSHRs and the <code>system.cpu.dcache.blocked_cycles::no_mshrs</code> statistics from each run.</p>
+<p>What is the approximate benefit (for simulated runtime) of overlapping cache misses for this program?</p></li>
+<li><p>Try adjusting the data cache size to decrease the number of cache misses to a neglible number. Based on this, what portion of performance was lost from running the program with the original number of MSHRs versus the data cache not being factor?</p></li>
+<li><p>Examine the <code>system.cpu.dcache.overall_miss_latency</code> statistic, which shows the total number of <em>simulation ticks</em> memory accesses triggered by a cache miss took. Based on this (and any other statistics), estimate the performance gained by the ability to overlap cache misses with other instructions (both other cache acceses and non-cache instructions like integer arithmetic). Identify any major limitations of your estimate.</p>
+<p>The <code>overall_miss_latency</code> statistic counts time when there are two active cache misses twice. For example, if there is a miss at time 1 that takes until time 11 to resolve and a miss at time 5 that takes until time 14, the <code>overall_miss_latency</code> will be (11-1) + (14-5) = 19.</p>
+<p>When making your estimate, note that the simulated processor always overlaps cache misses with other operations, even when configured with one MSHR, so it can only handle one cache miss at a time.</p></li>
+</ol>
+<h2 id="part-d-branch-prediction-benefits"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-d-branch-prediction-benefits"><span class="header-section-number">5.4</span> Part D: Branch Prediction Benefits</a></h2>
+<p>Examine the counts of `squashed’ instructions and memory requests ignored due to squashing.</p>
+<ol type="1">
+<li><p>Based on the counters, estimate what portion of throughput is lost due to branch misprediction for each benchmark program. Identify any major limitations of your estimate.</p></li>
+<li><p>Based on the rate of branches, estimate the total benefit of the correct branch prediction for each benchmark. Identify any major limitations of your estimate.</p></li>
+<li><p>Change the branch predictor to the NeverTakenBP we have provided (by setting <code>the_cpu.branchPred = NeverTakenBP()</code>) and run each benchmark again. This branch predictor predicts every conditional branch as not taken resulting in a very low rate of correct branch prediction. How does the performance difference compare to your estimates?</p></li>
+</ol>
+<h2 id="part-e-achievable-bandwidth"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-e-achievable-bandwidth"><span class="header-section-number">5.5</span> Part E: Achievable bandwidth</a></h2>
+<p>Examine the instruction mixes for each benchmark program based on <em>committed microoperations</em> (the <code>system.cpu.commit.op_class_0::</code> counters). Note that program instructions may be split into multiple microoperations each of which is executed indiivdually on functional units.</p>
+<p>Examine the available functional units in the gem5 source code in <code>src/o3/FuncUnitConfig.py</code>. In <code>FuncUnitConfig.py</code>, the counts indicate the <q>width</q> of each functional unit available. Unless otherwise specified with the pipelined=False, each functional unit can dispatch count instructions per cycle. Unless specified with the opLat option, each functional unit takes 1 cycle to produce a result after a value is dispatched to it.</p>
+<ol type="1">
+<li><p>Based on the instruction mix and the available functional units, what is the maximum number of microoperations which could be dispatched per cycle? Assume that the mix of instructions is approximately constant throughout each benchmark’s execution.</p></li>
+<li><p>Based on this, about how close is each program to the maximum possible computation rate for the execute phase?</p></li>
+<li>Computation speed is also limited by the widths of the non-execute phases. Examine the counters and histograms in the stats.txt files for:
+<ul>
+<li>instructions fetched per cycle</li>
+<li>instructions decoded per cycle</li>
+<li>instructions renamed per cycle</li>
+<li>instructions dispatched per cycle</li>
+<li>instructions issued per cycle</li>
+<li>instructions committed per cycle</li>
+<li>instructions squashed per cycle (when undoing a mispredicted branch in the commit phase)</li>
+</ul>
+<p>Note that, by default, each of the maximum number of instructions (usually actually microops) per cycle for each of these phases is 8.</p>
+<p>Consider changing all these widths to 4. Which benchmark seems like it should be most affected and why? Which benchmark seems like it should be least affected and why?</p></li>
+<li><p>Now try running each benchmark with all these widths changed to 4. How does performance actually change?</p></li>
+<li><p>A fundamental limit on out-of-order processors is the <q>dependence limit</q> — the inability to issue instructions faster than their dependencies can be computed. The processor in question tries to evade the dependence limit somewhat by speculatively executing past unexecuted branches, and speculatively executing memory accesses before it knows if their addresses will conflict, but there is a limit on how far it can go.</p>
+<p>Try to run the simulated processor much closer to this dependence limit by increasing all the widths from Part E.3 along with dramatically increasing the number of functional units of each type, the number of reorder buffer entries, the number of physical registers of every type, and the size of the load/store queues. How much does the instructions per cycle increase by?</p></li>
+</ol>
+<h2 id="part-f-miscellaneous-resource"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#part-f-miscellaneous-resource"><span class="header-section-number">5.6</span> Part F: Miscellaneous Resource</a></h2>
+<p>Choose <em>one</em> of following parameters:</p>
+<ol type="a">
+<li>the latency of the available functional units;</li>
+<li>the size of the reorder buffer;</li>
+<li>the size of the instruction queue;</li>
+<li>the sizes of the load and store queues;</li>
+<li>the number of physical registers (internal register names);</li>
+<li>the size of the branch predictors;</li>
+</ol>
+<ol type="1">
+<li><p>For the parameter you choose, look for evidence in benchmark statistics from benchmarks you already ran that changing it is likely to have a small or large effect on performance. What do you find? Do you think it is possible to infer the effects of the parameter from the statistics? Explain why or why not.</p></li>
+<li><p>Try varying the parameter and running the benchmark programs. How much does performance change? Does this match your expectations?</p></li>
+</ol>
+<h1 id="note-on-errors"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#note-on-errors"><span class="header-section-number">6</span> Note on errors</a></h1>
+<p>If you get an error about gettid being unimplemented, check the program.err file. Often this means the program failed and tried to execute an error handling routine that needed to know some process information that gem5 does not simulate properly.</p>
+<h1 id="building-benchmarks-and-gem5"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#building-benchmarks-and-gem5"><span class="header-section-number">7</span> Building benchmarks and gem5</a></h1>
+<p>You should not need the instructions in the section if you are using our prebuilt archives on a 64-bit Linux system.</p>
+<h2 id="rebuilding-the-benchmarks"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#rebuilding-the-benchmarks"><span class="header-section-number">7.1</span> Rebuilding the benchmarks</a></h2>
+<p>The <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/hw2-benchmarks.tar.gz">benchmarks</a> includes a Makefile. If you have <a href="https://www.gnu.org/software/make/manual/html_node/index.html">GNU make</a> and gcc and g++ installed, running <code>make clean</code>, then <code>make</code> should rebuild all the benchmark programs for your system.</p>
+<p>If you are using one of our supplied VMs, you may need to install these packages. One way to do this is <code>sudo apt-get install build-essential</code>.</p>
+<p>If you’d like to build the benchmarks with a different compiler and/or differnt compiler options, you will need to edit the <code>Makefile</code> <em>and</em> the Makefile in <code>breadthFirstSearch/deterministicBFS</code> <em>and</em> the Makefile in <code>sha</code>.</p>
+<h2 id="rebuilding-gem5"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#rebuilding-gem5"><span class="header-section-number">7.2</span> Rebuilding gem5</a></h2>
+<p>These instructions are for building gem5 on a Unix-like system.</p>
+<p>To build gem5 from source, first make sure the following dependencies (listed with Ubuntu/Debian package names) are installed (from the video on <a href="http://gem5.org/Introduction">this page</a>):</p>
+<ul>
+<li>mercurial</li>
+<li>scons</li>
+<li>swig</li>
+<li>gcc</li>
+<li>g++</li>
+<li>m4</li>
+<li>python-dev (development packages for python 2)</li>
+<li>libgoogle-perftools-dev (development packages for <a href="https://github.com/gperftools/gperftools">google-perftools</a>)</li>
+</ul>
+<p>Then acquire the gem5 source. You can take our <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/gem5-linux64-prebuilt.tar.gz">prebuilt package</a> and remove the <code>build</code> directory. Alternatively, you can checkout gem5 from mercurial yourself using</p>
+<pre><code>hg clone http://repo.gem5.org/gem5</code></pre>
+<p>and then apply our <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/gem5.patch">patch</a> using</p>
+<pre><code>patch -p 1 &lt; ./gem5.patch</code></pre>
+<p>Then use <code>scons build/X86/gem5.opt</code> to actually build the gem5 directory.</p>
+<h1 id="linux-quick-start"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#linux-quick-start"><span class="header-section-number">8</span> Linux quick start</a></h1>
+<p>From a default graphical install of Ubuntu, log in and use alt-F2 and type <code>gnome-terminal</code> to get a command line window. (Alternately, if using vagrant, <code>vagrant ssh</code> will give you a command-line window in the virtual machine.)</p>
+<p>Then, here are some useful commands (adapted from our <a href="https://www.cs.virginia.edu/luther/3330/F2016/getc.html">advice in CS 3330</a>):</p>
+<ul>
+<li><code>pwd</code>: identify the current directory you are in</li>
+<li><code>ls</code>: list files in the current directory</li>
+<li><code>mkdir</code>: create a new directory</li>
+<li><code>man ls</code>: display a manual page for ls. This also works for essentially every other command.</li>
+<li><code>cd dirname</code>: enter the <code>dirname</code> directory</li>
+<li><code>cd ..</code>: enter the parent directory of the current directory; for example, if you are in <code>/home/cr4bd/benchmarks</code>, the parent directory is <code>/home/cr4bd</code>. You can also generally use <code>..</code> to refer to files in the parent directory, for example <code>../foo.txt</code> names a file called foo.txt in the parent directory.</li>
+<li><code>./foo</code> runs an executable called <code>foo</code> in the current directory.</li>
+<li><code>history</code>: show commands you ran recently.</li>
+<li><code>wget URL</code> to download the file from URL to the current directory.</li>
+<li><code>tar -zxvf FILE.tar.gz</code> to extract the tar archives we provide.</li>
+<li><code>gedit &amp;</code>: open a graphical text editor. Other possible graphical editors include <code>geany</code> and <code>kate</code>. The <code>&amp;</code> indicates to run the command in the background.</li>
+<li><code>nano</code> or <code>pico</code>: open an editor that operates in the terminal (likely necessary if you are SSHing into your VM.)</li>
+<li><code>sudo apt install PACKAGE</code>. Install a software package. If you’re using Ubuntu 16.04, you can search possible packages <a href="http://packages.ubuntu.com/">on this page</a>, selecting the <code>xenial</code> distribution. The <code>sudo</code> indicates to run the specified command as root. It will require your password. In the VM image we supply, the password is <code>password</code>.</li>
+</ul>
+<p>In the terminal, you can use up-arrow and down-arrow to repeat recent commands. If you press TAB, this will try to complete your current command, for example <code>cd be</code><em>TAB</em> will probably result in <code>cd benchmarks</code> if a directory named <code>benchmarks</code> exists in the current directory. If there were multiple directories starting with <code>be</code>, then it would not complete to any name, but pressing TAB twice would give you a list of the possible completions.</p>
+<h1 id="changelog"><a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/homework2.html#changelog"><span class="header-section-number">9</span> Changelog</a></h1>
+<ul>
+<li>1 October morning: updated <a href="https://www.cs.virginia.edu/~cr4bd/6354/F2016/hw2-benchmarks.tar.gz">prebuilt benchmarks</a> to be 64-bit instead of 32-bit binaries. If you have the old verison, you can still use it.</li>
+<li>1 October evening: clarified that most any 64-bit Linux installation should be acceptable for this assignment;</li>
+<li><a name="perf-improve"></a>1 October evening: performance improvements (I hope) to supplied VM image. If you already downloaded the VM, it’s easier to apply to the changes by hand:
+<ul>
+<li>Increased video RAM to 24 MB (in VirtualBox settings dialog)</li>
+<li>Enabled 3D acceleration (in VirtualBox settings dialog)</li>
+<li>Installed VirtualBox guest drivers in Ubuntu (<code>sudo apt install virtualbox-guest-dkms</code>)</li>
+</ul></li>
+<li>3 October: Cleanup Linux tab completion explanation.</li>
+<li>6 October: Fix omission of inputs from benchmarks archive and added seperate link to benchmark inputs.</li>
+<li>6 October: Add section on supplying command-line arguments to gem5 programs.</li>
+<li>7 October: Clarify that for F.1 the evidence should be from prior benchmark results.</li>
+<li>7 October: Change <q>MST</q> to <q>BFS</q> in Task C. (A draft of this assignment had a different graph-based benchmark program in place of BFS.)</li>
+<li>10 October: Added note in section on passing command-line arguments about the program running from the output directory.</li>
+<li>10 October: Task B: made all mentions of which ticks to measure say 500 million to 501 million (this was already the case in the command, but not the text around it).</li>
+<li>12 October: Task C: clarify question 2 to not imply increasing the cache size should decrease performance.</li>
+<li>14 October: Task C: correctly identify default number of MSHRs as 4.</li>
+<li>18 October: Task C: lots of clarification to question 3.</li>
+<li>22 October: Task D: be more explicit about what NeverTakenBP does (it does not disable branch prediction).</li>
+<li>22 October: Clarify about Python comments in <q>Varying Simulation Parameters</q> section; don’t mention things that aren’t in the current example comments.</li>
+<li>22 October: Updated supplied benchmarks to correct comment above <code>create_cpu</code>.</li>
+<li>24 October: added paragraph to the end of <q>Varying Simulation Parameters</q> section;</li>
+</ul>
+
+
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>

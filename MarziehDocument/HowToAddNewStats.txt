@@ -1,0 +1,5 @@
+[base.cc at line 292, column 26]      ConversionWrtBack  = ConversionWrtBackCount;
+[base.cc at line 305, column 75]      NumberOfConversion = (((64*8)/reducedVarSize1)*RatiodMisses)+((64/4)* ConversionWrtBackCount);
+[cache.cc at line 497, column 17]                  ConversionWrtBackCount++;
+[base.hh at line 365, column 19]      Stats::Scalar ConversionWrtBackCount;
+
